@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Koji from "./Koji"
 
 
 const CurrentWeather = () => {
@@ -18,7 +17,6 @@ const CurrentWeather = () => {
     return (
         <>
             <div>{temp}</div>
-            <Koji age={30}/>
         </>
     )
 
