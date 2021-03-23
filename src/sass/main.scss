@@ -1,0 +1,121 @@
+@import './value.scss';
+
+
+body{
+    @include background-color;
+    font-family: $text-font;
+
+}
+
+.nav-bar{
+    padding: 2rem;
+    @include row;
+    justify-content: space-between;
+    .nav-logo{
+        width: 6rem;
+        height: auto;
+    }
+
+    .search{
+        padding: 0.5rem;
+        input{
+            border-radius: 40px 0px 0px 40px;
+            border: 1.5px solid;
+            outline: none;
+            width: 31rem;
+            height: 3rem;
+            padding: 1rem;
+            border-color: $color-white;
+            background-color: rgba($color: $color-white, $alpha: 0);
+        }
+        input::placeholder{
+            color: $color-white;
+        }
+        button{
+            height: 3rem;
+            width: 7rem;
+            border: 0;
+            border-radius: 0px 40px 40px 0px;
+            color: $color-primary-blue;
+            background-color: $color-white;
+            outline: none;
+            &:hover{
+                color: $color-primary-violet;
+            }
+        }
+
+    }    
+
+    .burger-menu{
+        @include column;
+        .burger-line{
+            margin: 0.3rem;
+            width: 2.5rem;
+            height: 0.3rem;
+            background-color: $color-white;
+        }
+    }
+    
+}
+
+.beer-wave-all{
+
+    width: 100vw;
+    overflow: hidden;
+    margin-left: -1rem;
+
+
+    .beer-waves{
+        position: fixed;
+
+        // position: relative;
+        width: 100vw;
+        height: 50vh;
+        top: 50vh;
+        overflow: hidden;
+        background-image: url("./img/beer-wave-y3.png");
+        background-size: cover;
+        @include wave;
+        z-index: -1;
+
+    
+    }
+    
+    .beer-waves1{
+        position: fixed;
+        // position: absolute;
+        width: 100vw;
+        height: 50vh;
+        top: 50vh;
+        overflow: hidden;
+        background-image: url("./img/beer-wave-y4.png");
+        background-size: cover;
+        @include wave1;
+    
+    }
+
+}
+
+.temp-main{
+    @include column;
+    align-items: center;
+    color: $color-white;
+    .temp-main-cityname{
+        font-weight: 400;
+        letter-spacing: 0.2rem;
+        font-size: 2.5rem;
+    }
+    .temp-main-large{
+        @include row;
+        justify-content: center;
+        .temp-icon-large{
+            width: 100%;
+            height: 100%;
+        }
+        .temp-large{
+            font-family: $number-font;
+            font-size: 6rem;
+            line-height: 0rem;
+        }
+    }
+}
