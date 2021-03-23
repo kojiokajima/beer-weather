@@ -128,7 +128,9 @@ body{
         .temp-large{
             font-family: $number-font;
             font-size: 7rem;
+            letter-spacing: -1px;
             line-height: 0rem;
+            font-weight: 500;
         }
 
         .temp-c-small{
