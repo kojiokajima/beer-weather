@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {beerData} from './beerData'
+import beerData from './beerData'
 
 const Test = () => {
   const [data, setData] = useState(beerData.cold.sunny)
   const temp = 27
   const weather = 'sunny'
   const random =  Math.floor(Math.random() * 3)
+
+  console.log("beer data: ", beerData)
 
   useEffect(() => {
 
@@ -70,10 +72,10 @@ const Test = () => {
   }, []);
 
   // switch()
-  console.log(data)
-  console.log(random)
-  console.log(data[random])
-  console.log(data[random][0])
+  // console.log(data)
+  // console.log(random)
+  // console.log(data[random])
+  // console.log(data[random][0])
   // console.log(typeof(data[random]))
   // console.log(...data[random])
   // console.log(data[random][0])
