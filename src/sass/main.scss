@@ -3,17 +3,23 @@
 
 body{
     @include background-color;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: $text-font;
-
 }
+
+
 
 .nav-bar{
     padding: 2rem;
     @include row;
     justify-content: space-between;
+    margin-bottom: -3rem;
+    margin-top: -1rem;
     .nav-logo{
         width: 6rem;
         height: auto;
+
     }
 
     .search{
@@ -40,7 +46,7 @@ body{
             background-color: $color-white;
             outline: none;
             &:hover{
-                color: $color-primary-violet;
+                color: $color-primary-blue-dark;
             }
         }
 
@@ -76,7 +82,7 @@ body{
         background-image: url("./img/beer-wave-y3.png");
         background-size: cover;
         @include wave;
-        z-index: -1;
+        z-index: -2;
 
     
     }
@@ -91,6 +97,8 @@ body{
         background-image: url("./img/beer-wave-y4.png");
         background-size: cover;
         @include wave1;
+        z-index: -1;
+
     
     }
 
@@ -100,22 +108,112 @@ body{
     @include column;
     align-items: center;
     color: $color-white;
+    text-shadow: 1px 1px 3px $color-primary-blue-shadow;
+
     .temp-main-cityname{
         font-weight: 400;
         letter-spacing: 0.2rem;
         font-size: 2.5rem;
+        margin-bottom: -0.5rem;
     }
     .temp-main-large{
         @include row;
         justify-content: center;
+        margin-bottom: -0.5rem;
         .temp-icon-large{
-            width: 100%;
-            height: 100%;
+            width: 70%;
+            height: 70%;
+            padding: 2rem 1rem 1rem 1rem;
         }
         .temp-large{
             font-family: $number-font;
-            font-size: 6rem;
+            font-size: 7rem;
             line-height: 0rem;
+        }
+
+        .temp-c-small{
+            font-size: 3rem;
+
+        }
+    }
+
+    .temp-high-low{
+        @include row;
+        font-family: $number-font;
+        letter-spacing: 0.1rem;
+        h3{
+            font-size: 2rem;
+            font-weight: 200;
+            margin: 0.5rem;
+        }
+    }
+}
+
+.beer-info{
+    @include row;
+    justify-content: center;
+    color: $color-white;
+    text-shadow: 1px 1px 3px $color-primary-blue-shadow;
+    letter-spacing: 0.1rem;
+    padding: 2rem;
+    
+    img{
+        width: 11rem;
+        height: 100%;
+        padding-right: 2.5rem;
+    }
+    
+    .beer-text{
+        @include column;
+        margin-top: -3rem;
+        .beer-title{
+            @include row;
+            align-items: baseline;
+            text-align: center;
+            margin-bottom: -3rem;
+            h2{
+                font-size: 3rem;
+                font-weight: 500;
+            }
+            h3{
+                padding-left: 0.5rem;
+                font-weight: 200;
+            }
+        }
+        .beer-contents{
+            @include column;
+            align-items: center;
+            letter-spacing: 0.1rem;
+            .beer-describe{
+                @include row;
+                font-size: 1rem;
+                margin-bottom: -1.5rem;
+                .answer{
+                    font-weight: 200;
+                    padding-left: 0.5rem;
+                }
+                .star{
+                    color: $color-primary-blue;
+                }
+            }
+        }
+
+        .btn-link{
+            width: 20rem;
+            height: 3.5rem;
+            outline: none;
+            border: 0;
+            border-radius: 5rem;
+            color: $color-white;
+            font-family: $text-font;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.2rem;
+            background-color: $color-primary-blue;
+            margin-top: 1rem;
+            &:hover{
+                background-color: $color-primary-blue-dark;
+            }
         }
     }
 }
