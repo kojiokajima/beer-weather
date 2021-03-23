@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import './index.css';
+import './sass/value.scss'
+// import App from './App';
+// import './sass/main.scss'
+import Inae from './Inae'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <Inae />
   </React.StrictMode>,
   document.getElementById('root')
 );
