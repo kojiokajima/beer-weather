@@ -81,13 +81,44 @@ const Test = () => {
   // console.log(data[random][0])
 
   return (
-    <div>
-      <p>name: {data[random][0]}</p>
-      <p>style: {data[random][1]}</p>
-      <p>Alc: {data[random][2]}</p>
-      <p>IBU: {data[random][3]}</p>
-      <p>Description: {data[random][4]}</p>
-    </div>
+
+    <div className="beer-info">
+            <img src={Beer} className="beer-img" />
+            <div className="beer-text">
+                <div className="beer-title">
+                    <h2 className="beer-name">{data[random][0]}</h2>
+                    <h3 className="beer-name2"> is perfect to this weather!</h3>
+                </div>
+                <div className="beer-contents">
+                    <div className="beer-describe">
+                        <h3 className="question">Style: {data[random][1]}</h3>
+                        <h3 className="answer">Pale</h3>
+                    </div>
+                    <div className="beer-describe">
+                        <h3 className="question">IBU: </h3>
+                        <h3 className="answer star">{data[random][3]} </h3>
+                        {/* <h3 className="answer star">★ ★ ★ ★ </h3> */}
+                    </div>
+                    <div className="beer-describe">
+                        <h3 className="question">Description: </h3>
+                        <h3 className="answer">{data[random][4]}</h3>
+                    </div>
+                
+                <button className="btn-link">Go to Homepage</button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    // <div>
+    //   <p>name: {data[random][0]}</p>
+    //   <p>Style: {data[random][1]}</p>
+    //   <p>Alc: {data[random][2]}</p>
+    //   <p>IBU: {data[random][3]}</p>
+    //   <p>Description: {data[random][4]}</p>
+    // </div>
   );
 };
 
