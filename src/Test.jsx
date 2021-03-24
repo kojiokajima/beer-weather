@@ -25,6 +25,8 @@ const Test = () => {
         case 'rainy':
           setData(beerData.cold.rainy)
           break;
+        default:
+          break;
       }
     } else if (temp >= 15 && temp <= 25) {
       switch(weather){
@@ -37,6 +39,8 @@ const Test = () => {
         case 'rainy':
           setData(beerData.moderate.rainy)
           break;
+        default:
+          break;
       }
     } else if (temp > 25) {
       switch(weather){
@@ -48,6 +52,8 @@ const Test = () => {
           break;
         case 'rainy':
           setData(beerData.warm.rainy)
+          break;
+        default:
           break;
       }
     }

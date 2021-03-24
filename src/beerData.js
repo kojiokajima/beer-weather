@@ -1,9 +1,9 @@
 const beerData = {
-    cold: {
+    cold: { // Poter, Smoke Poter, Barrel-Aged Beer, Stout, Imperial Stout, Oatmeal Stout
         sunny: [
             ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldsunny1'], // --> beerData.cold.sunny[0]
-            ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldsunny2'], // --> beerData.cold.sunny[1]
-            ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldsunny3'], 
+            ['Alien Porter', 'Brown Porter', '5.7%', 45, 'coldsunny2'], // --> beerData.cold.sunny[1]
+            ['9lb Porter', 'Brown Porter', '4.6%', 26, 'coldsunny3'], 
         ],
         cloudy: [
             ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldcloudy1'], 
@@ -42,7 +42,7 @@ const beerData = {
     //     ]
     // },
 
-    moderate: {
+    moderate: { // IPA, Kolsh, Dubel, Hazy IPA, Red Ale, Amber Ale
         sunny: [
             ['Alferd Packer Killer Kölsch', 'Kölsch', '5.1%', 25, 'moderatemoderate'], // --> beerData.moderate.sunny[0]
             ['Alferd Packer Killer Kölsch', 'Kölsch', '5.1%', 25, 'moderatemoderate'], // --> beerData.moderate.sunny[1]
@@ -84,11 +84,11 @@ const beerData = {
     //     ]
     // },
 
-    warm: {
+    warm: { // Gose, Pilsner, Sour Ale, Wheat, Session IPA, Blonde IPA
         sunny: [
             ['Barn Phantom Gose with Mango', 'Gose', '4%', 10, 'wormwormwormworm'], // --> beerData.warm.sunny[0]
-            ['Barn Phantom Gose with Mango', 'Gose', '4%', 10, 'wormwormwormworm'], // --> beerData.warm.sunny[1]
-            ['Barn Phantom Gose with Mango', 'Gose', '4%', 10, 'wormwormwormworm'],
+            ['Warm sunny No.2', 'No.2', '2%', 15, 'wormwormwormworm'], // --> beerData.warm.sunny[1]
+            ['Warm sunny No.3', 'No.3', '3%', 18, 'wormwormwormworm'],
         ],
         cloudy: [
             ['Barn Phantom Gose with Mango', 'Gose', '4%', 10, 'wormwormwormworm'],
