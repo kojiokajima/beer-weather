@@ -6,18 +6,29 @@ import Beer from './sass/img/coronas.png';
 import BeerIcon from './sass/img/beer_w.png'
 import Test from './Test';
 import CurrentWeather from './CurrentWeather';
+import Hourly from './component/Hourly';
+import Navi from './component/Navi'
 
 export const TempContext = createContext([0, ()=>{}])
 export const WeatherContext = createContext(['Clouds', ()=>{}])
-
-function Inae() {
-    const [temp, setTemp] = useState(0)
-    const [weather, setWeather] = useState('Clouds')
+export const SearchContext = createContext(
+    [
+      '',
+      () => {}
+    ]
+  )
+  function Inae() {
+      const [temp, setTemp] = useState(0)
+      const [weather, setWeather] = useState('Clouds')
+      const [serchedCity, setSearchedCity] = useState('Vancouver')
 
   return (
+      <SearchContext.Provider value={[serchedCity, setSearchedCity]}>
+
       <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
     <div className="App">
-      <header className="App-header">
+        <Navi />
+      {/* <header className="App-header">
           <nav className="nav-bar">
             <img src={Logo} className="nav-logo" />
             <div className="search">
@@ -30,7 +41,7 @@ function Inae() {
                 <div className="burger-line"></div>
             </div>
           </nav>
-      </header>
+      </header> */}
         {/* <div className="temp-main">
             <h2 className="temp-main-cityname">Vancouver</h2>
             <div className="temp-main-large">
@@ -73,7 +84,8 @@ function Inae() {
         </div> */}
         <Test />
         <hr></hr>
-        <div className="weather-time">
+        <Hourly />
+        {/* <div className="weather-time">
             <div className="weather-content">
                 <h3 className="time-text">Now</h3>
                 <img src={icon} className="weather-content-icon" />
@@ -139,7 +151,7 @@ function Inae() {
                 <img src={icon} className="weather-content-icon" />
                 <h3 className="temp-text">24°</h3>
             </div>
-        </div>
+        </div> */}
         <hr></hr>
 
         <div className="weather-week">
@@ -220,6 +232,7 @@ function Inae() {
 
     </div>
     </TempContext.Provider>
+    </SearchContext.Provider>
 
   );
 }
