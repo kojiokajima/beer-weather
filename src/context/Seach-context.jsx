@@ -1,12 +1,13 @@
 import React, { createContext, useState } from 'react'
-import App from '../App'
-export const SearchContext = createContext([
-  '',
-  () => {}
-])
+export const SearchContext = createContext(
+  [
+    '',
+    () => {}
+  ]
+)
 
 
-const SearchContextProvider = (props) => {
+export const SearchContextProvider = (props) => {
 
   const [serchedCity, setSearchedCity] = useState('Vancouver')
 
@@ -16,7 +17,7 @@ const SearchContextProvider = (props) => {
   return (
     // <SearchContext.Provider value={{city: serchedCity}}>
      <SearchContext.Provider value={[serchedCity, setSearchedCity]}>
-      <App />
+      {props.children}
     </SearchContext.Provider>
   )
 

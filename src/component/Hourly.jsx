@@ -7,7 +7,7 @@ function Hourly(props) {
 
   const url = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_BEER_WEATHER_APP}&q=Vancouver&num_of_days=2&tp=1&format=json`
     axios.get(url).then((response) => {
-      console.log(response)
+      console.log(response.data)
 
    })
 

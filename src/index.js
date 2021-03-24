@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import SearchContextProvider from './context/Seach-context'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <SearchContextProvider>
     <App />
-  </React.StrictMode>,
+  </SearchContextProvider>,
   document.getElementById('root')
 );
 
