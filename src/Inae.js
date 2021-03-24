@@ -1,8 +1,10 @@
+import React from 'react';
 import './sass/main.scss';
 import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
-import BeerIcon from './sass/img/beer_w.png'
+import BeerIcon from './sass/img/beer_w.png';
+import CurrentWeather from './CurrentWeather';
 
 function Inae() {
   return (
@@ -21,7 +23,7 @@ function Inae() {
             </div>
           </nav>
       </header>
-        <div className="temp-main">
+        {/* <div className="temp-main">
             <h2 className="temp-main-cityname">Vancouver</h2>
             <div className="temp-main-large">
                 <img src={icon} className="temp-icon-large" />
@@ -32,7 +34,8 @@ function Inae() {
                 <h3><b>H:</b> 24°</h3>
                 <h3><b>L:</b> 11°</h3>
             </div>
-        </div>
+        </div> */}
+        <CurrentWeather />
         <div className="beer-info">
             <img src={Beer} className="beer-img" />
             <div className="beer-text">
