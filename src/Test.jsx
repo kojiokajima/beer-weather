@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import beerData from './beerData'
+import Beer from './sass/img/coronas.png';
+import './sass/main.scss'
 
 const Test = () => {
   const [data, setData] = useState(beerData.cold.sunny)
@@ -91,8 +93,8 @@ const Test = () => {
                 </div>
                 <div className="beer-contents">
                     <div className="beer-describe">
-                        <h3 className="question">Style: {data[random][1]}</h3>
-                        <h3 className="answer">Pale</h3>
+                        <h3 className="question">Style: </h3>
+                        <h3 className="answer">{data[random][1]}</h3>
                     </div>
                     <div className="beer-describe">
                         <h3 className="question">IBU: </h3>
