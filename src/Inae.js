@@ -3,7 +3,8 @@ import './sass/main.scss';
 import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
-import BeerIcon from './sass/img/beer_w.png';
+import BeerIcon from './sass/img/beer_w.png'
+import Test from './Test';
 import CurrentWeather from './CurrentWeather';
 
 function Inae() {
@@ -36,7 +37,7 @@ function Inae() {
             </div>
         </div> */}
         <CurrentWeather />
-        <div className="beer-info">
+        {/* <div className="beer-info">
             <img src={Beer} className="beer-img" />
             <div className="beer-text">
                 <div className="beer-title">
@@ -62,7 +63,8 @@ function Inae() {
 
             </div>
 
-        </div>
+        </div> */}
+        <Test />
         <hr></hr>
         <div className="weather-time">
             <div className="weather-content">
