@@ -15,7 +15,6 @@ const CurrentWeather = () => {
 
     useEffect(() => {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=Vancouver&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
-        console.log(url);
         axios.get(url).then((response) => {
             setTemp(response.data.main.temp)
             setTempMax(response.data.main.temp_max)
