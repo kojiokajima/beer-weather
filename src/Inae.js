@@ -145,12 +145,11 @@ function Inae() {
         <div className="weather-week">
             <div className="week-content">
                 <h3 className="time-text">Tuesday</h3>
-                <img src={icon} className="weather-content-icon" />
+                <img src="/icon/09d.png" className="weather-content-icon" />
                 <div className="beer-reco">
                     <img src={BeerIcon} className="beer-content-icon" />
                     <h3 className="beer-content-text">Drink Outside</h3>
                 </div>
-                <h3 className="temp-text">24°</h3>
                 <div className="temp-low-high">
                     <h3 className="temp-text high">24°</h3>
                     <h3 className="temp-text low">14°</h3>
@@ -163,7 +162,6 @@ function Inae() {
                     <img src={BeerIcon} className="beer-content-icon" />
                     <h3 className="beer-content-text">Drink Outside</h3>
                 </div>
-                <h3 className="temp-text">24°</h3>
                 <div className="temp-low-high">
                     <h3 className="temp-text high">24°</h3>
                     <h3 className="temp-text low">14°</h3>
@@ -176,7 +174,6 @@ function Inae() {
                     <img src={BeerIcon} className="beer-content-icon" />
                     <h3 className="beer-content-text">Drink Outside</h3>
                 </div>
-                <h3 className="temp-text">24°</h3>
                 <div className="temp-low-high">
                     <h3 className="temp-text high">24°</h3>
                     <h3 className="temp-text low">14°</h3>
@@ -189,7 +186,6 @@ function Inae() {
                     <img src={BeerIcon} className="beer-content-icon" />
                     <h3 className="beer-content-text">Drink Outside</h3>
                 </div>
-                <h3 className="temp-text">24°</h3>
                 <div className="temp-low-high">
                     <h3 className="temp-text high">24°</h3>
                     <h3 className="temp-text low">14°</h3>
@@ -202,7 +198,6 @@ function Inae() {
                     <img src={BeerIcon} className="beer-content-icon" />
                     <h3 className="beer-content-text">Drink Outside</h3>
                 </div>
-                <h3 className="temp-text">24°</h3>
                 <div className="temp-low-high">
                     <h3 className="temp-text high">24°</h3>
                     <h3 className="temp-text low">14°</h3>
