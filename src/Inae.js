@@ -8,11 +8,11 @@ import Test from './Test';
 import CurrentWeather from './CurrentWeather';
 
 export const TempContext = createContext([0, ()=>{}])
-export const WeatherContext = createContext(['sunny', ()=>{}])
+export const WeatherContext = createContext(['Clouds', ()=>{}])
 
 function Inae() {
     const [temp, setTemp] = useState(0)
-    const [weather, setWeather] = useState('sunny')
+    const [weather, setWeather] = useState('Clouds')
 
   return (
       <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >

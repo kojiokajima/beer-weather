@@ -5,14 +5,19 @@ import Beer from './sass/img/coronas.png';
 import './sass/main.scss'
 import { TempContext, WeatherContext } from "./Inae";
 
+// Weathers
+// Thunderstorm, Drizzle, Rain, Snow
+// Mist, Smoke, Haze, Dust Fog Sand, Ash, Squall, Tornado, Clouds
+// Clear
+
 const Test = () => {
   const [temp, setTemp] = useContext(TempContext)
-  // const [weather, setWeather] = useContext(WeatherContext)  // --> this will be used
+  const [weather, setWeather] = useContext(WeatherContext)
   const [data, setData] = useState(beerData.cold.sunny)
 
-  const temp = 27  // --> just for test
-  const weather = 'sunny'  // --> just for test
-  const random =  Math.floor(Math.random() * 3)
+  // const temp = 27  // --> just for test
+  // const weather = 'sunny'  // --> just for test
+  const random =  Math.floor(Math.random() * 4)
 
   console.log("beer data: ", beerData)
 
@@ -20,7 +25,7 @@ const Test = () => {
 
     if (temp < 15) {
       switch(weather){
-        case 'sunny':  // --> this will change
+        case 'Rain':  // --> this will change
           setData(beerData.cold.sunny)
           break;
         case 'cloudy':  // --> this will change
