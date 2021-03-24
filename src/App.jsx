@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import Test from './Test'
+import React from "react";
+import CurrentWeather from "./CurrentWeather"
+import "./App.css";
 
-function App() {
+
+
+// 24e5f02416d4df14ee3c7e8125885faa
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,8 +25,12 @@ function App() {
           Learn React
         </a>
       </header>
+      <CurrentWeather />
+      <Test />
     </div>
+    // <>
+    // </>
   );
-}
+};
 
 export default App;

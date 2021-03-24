@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+$text-font: 'Red Hat Display', sans-serif;
+$number-font: 'Barlow', sans-serif;
+
+$color-primary-blue: #7EA2FF;
+$color-primary-blue-dark: #476fd4;
+$color-primary-blue-shadow: #8f9bbb;
+
+
+$color-primary-violet: #EEBDFF;
+$color-primary-yellow: #FFDA57;
+
+
+$color-white: #fff;
+$color-grey: #C4C4C4;
+$color-grey-low: #dee1fc;
+$color-middle-grey: #8484a3;
+$color-dark-grey: #4D4B4B;
+$color-black: #0000;
+
+
+@mixin row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin  background-color {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(#7EA2FF, 1), rgba(#EEBDFF, 1));    
+}
+
+
+
+// @mixin wave {
+//     background-position: left 0px bottom -80px;
+//     // background-repeat: repeat-x;
+//     animation: wave 10s infinite linear
+
+    
+// }
+// @keyframes wave {
+//     0% {
+//         background-position: left -1200px bottom -200px;
+//     }
+//     100% { 
+//         background-position: left 0 bottom -100px;
+//     }
+// }
+
+
+@mixin wave {
+    animation: wave-move 8s infinite linear alternate;
+    
+}
+
+@keyframes wave-move{
+    0%{
+        background-position-x: -40rem;
+        background-position-y: 0rem;
+    }
+
+    100%{
+        background-position-x: 20rem;
+    }
+}
+
+@mixin wave1 {
+    animation: wave-move1 3s infinite linear alternate;
+    
+}
+
+@keyframes wave-move1{
+    0%{
+        background-position-x: 0rem;
+    }
+
+    100%{
+        background-position-x: 15rem;
+    }
+}
