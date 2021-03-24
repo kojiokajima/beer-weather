@@ -215,6 +215,7 @@ body{
             letter-spacing: 0.1rem;
             background-color: $color-primary-blue;
             margin-top: 1rem;
+            box-shadow: 2px 2px 2px $color-middle-grey;
             &:hover{
                 background-color: $color-primary-blue-dark;
             }
@@ -234,6 +235,12 @@ hr{
     overflow: scroll;
     color: $color-white;
     margin-left: 10vw;
+    text-shadow: 1px 1px 1px $color-primary-blue-shadow;
+
+    .time-text{
+        letter-spacing: 0.1rem;
+    }
+
     .weather-content-icon{
         width: 6rem;
     }
@@ -266,6 +273,10 @@ hr{
         justify-content: space-between;
         padding-bottom: 2rem;
         padding-top: 1rem;
+        text-shadow: 1px 1px 2px $color-primary-blue-shadow;
+        .time-text{
+            letter-spacing: 0.1rem;
+        }
         .weather-content-icon{
             width: 4rem;
             height: 3rem;
@@ -278,15 +289,16 @@ hr{
             font-family: $number-font;
             font-weight: 500;
             font-size: 1.4rem;
+            letter-spacing: 0.1rem;
         }
         .high{
             font-weight: 200;
-            margin-right: 2rem;
+            margin-right: 5rem;
         }
 
         .low{
             font-weight: 200;
-            color: $color-primary-blue-shadow;
+            color: $color-grey-low;
         }
 
         .temp-low-high{
