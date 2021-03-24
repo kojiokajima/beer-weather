@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import beerData from './beerData'
 import Beer from './sass/img/coronas.png';
 import './sass/main.scss'
+import { TempContext, WeatherContext } from "./Inae";
 
 const Test = () => {
+  const [temp, setTemp] = useContext(TempContext)
+  // const [weather, setWeather] = useContext(WeatherContext)  // --> this will be used
   const [data, setData] = useState(beerData.cold.sunny)
-  const temp = 27
-  const weather = 'sunny'
+
+  const temp = 27  // --> just for test
+  const weather = 'sunny'  // --> just for test
   const random =  Math.floor(Math.random() * 3)
 
   console.log("beer data: ", beerData)
@@ -16,13 +20,13 @@ const Test = () => {
 
     if (temp < 15) {
       switch(weather){
-        case 'sunny':
+        case 'sunny':  // --> this will change
           setData(beerData.cold.sunny)
           break;
-        case 'cloudy':
+        case 'cloudy':  // --> this will change
           setData(beerData.cold.cloudy)
           break;
-        case 'rainy':
+        case 'rainy':  // --> this will change
           setData(beerData.cold.rainy)
           break;
         default:
@@ -30,13 +34,13 @@ const Test = () => {
       }
     } else if (temp >= 15 && temp <= 25) {
       switch(weather){
-        case 'sunny':
+        case 'sunny':  // --> this will change
           setData(beerData.moderate.sunny)
           break;
-        case 'cloudy':
+        case 'cloudy':  // --> this will change
           setData(beerData.moderate.cloudy)
           break;
-        case 'rainy':
+        case 'rainy':  // --> this will change
           setData(beerData.moderate.rainy)
           break;
         default:
@@ -44,13 +48,13 @@ const Test = () => {
       }
     } else if (temp > 25) {
       switch(weather){
-        case 'sunny':
+        case 'sunny':  // --> this will change
           setData(beerData.warm.sunny)
           break;
-        case 'cloudy':
+        case 'cloudy':  // --> this will change
           setData(beerData.warm.cloudy)
           break;
-        case 'rainy':
+        case 'rainy':  // --> this will change
           setData(beerData.warm.rainy)
           break;
         default:
@@ -60,7 +64,6 @@ const Test = () => {
 
 
     // こんなやつ --> beerData.cold.sunny[0]のなかに[name, style, alc, IBU, description]
-    // if (temp)
 
 
     // const url = `https://api.openweathermap.org/data/2.5/weather?q=Vancouver&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
@@ -79,7 +82,6 @@ const Test = () => {
     // })
   }, []);
 
-  // switch()
   // console.log(data)
   // console.log(random)
   // console.log(data[random])

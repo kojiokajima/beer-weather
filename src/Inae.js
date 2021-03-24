@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext, useState} from 'react';
 import './sass/main.scss';
 import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
@@ -7,8 +7,15 @@ import BeerIcon from './sass/img/beer_w.png'
 import Test from './Test';
 import CurrentWeather from './CurrentWeather';
 
+export const TempContext = createContext([0, ()=>{}])
+export const WeatherContext = createContext(['sunny', ()=>{}])
+
 function Inae() {
+    const [temp, setTemp] = useState(0)
+    const [weather, setWeather] = useState('sunny')
+
   return (
+      <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
     <div className="App">
       <header className="App-header">
           <nav className="nav-bar">
@@ -212,6 +219,8 @@ function Inae() {
         </div>
 
     </div>
+    </TempContext.Provider>
+
   );
 }
 
