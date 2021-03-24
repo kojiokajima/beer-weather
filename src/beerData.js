@@ -4,6 +4,7 @@ const beerData = {
             ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldsunny1'], // --> beerData.cold.sunny[0]
             ['Alien Porter', 'Brown Porter', '5.7%', 45, 'coldsunny2'], // --> beerData.cold.sunny[1]
             ['9lb Porter', 'Brown Porter', '4.6%', 26, 'coldsunny3'], 
+            ['Yoooo', 'Working?', '42.6%', 96, 'llkkiodsc'], 
         ],
         cloudy: [
             ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldcloudy1'], 
