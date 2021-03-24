@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import './index.css';
+import './sass/value.scss'
+// import App from './App';
+// import './sass/main.scss'
+import Inae from './Inae'
 import reportWebVitals from './reportWebVitals';
-import SearchContextProvider from './context/Seach-context'
 
 ReactDOM.render(
-  <SearchContextProvider>
-    <App />
-  </SearchContextProvider>,
+  <React.StrictMode>
+    {/* <App /> */}
+    <Inae />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
