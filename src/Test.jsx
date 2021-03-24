@@ -6,9 +6,9 @@ import './sass/main.scss'
 import { TempContext, WeatherContext } from "./Inae";
 
 // Weathers
-// Thunderstorm, Drizzle, Rain, Snow
-// Mist, Smoke, Haze, Dust Fog Sand, Ash, Squall, Tornado, Clouds
-// Clear
+// sunny: Clear
+// cloudy: Mist, Smoke, Haze, Dust Fog Sand, Ash, Squall, Tornado, Clouds
+// rainy: Thunderstorm, Drizzle, Rain, Snow
 
 const Test = () => {
   const [temp, setTemp] = useContext(TempContext)
