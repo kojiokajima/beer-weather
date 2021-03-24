@@ -147,7 +147,7 @@ function Inae() {
                 <h3 className="time-text">Tuesday</h3>
                 <img src="/icon/09d.png" className="weather-content-icon" />
                 <div className="beer-reco">
-                    <img src={BeerIcon} className="beer-content-icon" />
+                    <img src="/beer_t.gif" className="beer-content-icon" />
                     <h3 className="beer-content-text">Drink Outside</h3>
                 </div>
                 <div className="temp-low-high">
