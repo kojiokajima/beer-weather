@@ -14,13 +14,13 @@ function Navi() {
     
     console.log("cityInUse: " + searchedCity)
     // setSearchHandler();
-  }, [])
+  }, [searchedCity])
 
   const setSearchHandler = (e) => {
     e.preventDefault()
     console.log("in funcccc", e)
-    console.log("in func", e.target.value)
-    setSearchedCity(e.target.value)
+    console.log("in func", e.target[0].value)
+    setSearchedCity(e.target[0].value)
     console.log("new city: " + searchedCity)
   }
 
@@ -45,7 +45,6 @@ function Navi() {
             <img src={Logo} className="nav-logo" />
             <div className="search">
                 <form onSubmit={setSearchHandler}>
-
                   <input type="search" placeholder="Search your city, Find your beer!!" className="search-input"></input>
                   <button type="submit">SEARCH</button>    
                 </form>
