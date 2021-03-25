@@ -25,13 +25,16 @@ const Test = () => {
   const [temp, setTemp] = useState(6)
   const [tempType, setTempType] = useState('warm')
   const [weather, setWeather] = useState('Clear')
-  // const [length, setLength] = useState(0)
+  const [length, setLength] = useState(0)
   const [data, setData] = useState(beerData.cold.sunny)
   // -----------temporary-----------
 
   const getBeerData = () => {
     console.log("----getBeerData  CALLED----")
     console.log("temp tempType weather: ", temp, tempType, weather)
+    console.log("length: ", length)
+    console.log('Data: ', beerData.weather)
+
 
     if(weather === 'Clear') {
       setWeather('sunny')
@@ -46,21 +49,22 @@ const Test = () => {
     } else if (temp >= 15 && temp <= 25) {
       setTempType('moderate')
     }
+
   }
 
   
-  const random =  Math.floor(Math.random() * 4)
-  // const random =  Math.floor(Math.random() * data.weather.tempType.length)
+  const random =  Math.floor(Math.random() * 5)
   
   console.log("----TEST RENDERED----")
   console.log("temp tempType weather: ", temp, tempType, weather)
+  console.log("length: ", length)
 
-  // console.log("beer data: ", beerData)
-  // console.log("weather: ", weather) // --> called twice
   
   useEffect(() => {
     console.log("----useEffect EVOKED----")
     console.log("temp tempType weather: ", temp, tempType, weather)
+    console.log("length: ", length)
+
 
     getBeerData()
 
