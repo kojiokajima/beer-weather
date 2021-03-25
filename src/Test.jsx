@@ -117,7 +117,7 @@ const Test = (props) => {
           break;
       }
     }
-  }, [props.weatherData])
+  }, [props.weatherData, tempType, weather])
   
 
   useEffect(() => {
