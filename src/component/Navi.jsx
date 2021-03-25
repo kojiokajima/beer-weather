@@ -18,7 +18,7 @@ function Navi() {
 
   const setSearchHandler = (e) => {
     e.preventDefault()
-    console.log("in funcccc", e)
+    // console.log("in funcccc", e)
     console.log("in func", e.target[0].value)
     setSearchedCity(e.target[0].value)
     console.log("new city: " + searchedCity)
@@ -31,15 +31,7 @@ function Navi() {
   // }
 
   return (
-    // <div>
-    //   <p>yooooooooooooooooooo</p>
-    //   <img src="https://logodix.com/logo/390958.png" alt="top logo" />
-    //   <form onSubmit={setSearchHandler}>
-    //   {/* <input type="text" onChange={changeHandler}></input> */}
-    //   <input type="text" id="search" placeholder="Search city"/>
-
-    //   </form>
-    // </div> 
+    
     <header className="App-header">
           <nav className="nav-bar">
             <img src={Logo} className="nav-logo" />
@@ -59,7 +51,7 @@ function Navi() {
   )
 }
 
-// (e) => setSearchedCity(e.target.value)
+
 
 export default Navi
 
