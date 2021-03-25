@@ -29,19 +29,24 @@ function Inae() {
     }
     
     //weekly part 
-    const defaultWeeklyWeatherData = {
-        dt_text: '',
-        main: {
-            temp_max: '',
-            temp_min: ''
-        }
+    // const defaultWeeklyWeatherData = {
+    //     dt_txt: '',
+    //     main: {
+    //         temp_max: '',
+    //         temp_min: ''
+    //     }
 
-    }
+    // }
+
+    const defaultWeeklyWeatherData = []
+
 
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
     //weekly part
     const [weeklyWeatherData, setWeeklyWeahterData] = useState(defaultWeeklyWeatherData)
+    // const [weeklyWeatherData, setWeeklyWeahterData] = useState([])
+
 
 
 
@@ -65,51 +70,13 @@ function Inae() {
     const fetchWeeklyWetherData = async () => {
         const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
         const response = await axios.get(url)
+        // defaultWeeklyWeatherData.push(response.data.list)
         setWeeklyWeahterData(response.data.list)
-        console.log(response.data.list);
+        // setWeeklyWeahterData(defaultWeatherData)
+        // console.log(weeklyWeatherData);
     }
 
-  //weekly api try2 
-
-    // const fetchWeeklyWetherData = async(text) => { 
-    //     try {
-    //         const { data: {city: {name}, list} } = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`);
-    //         let i;
-    //         let days = [];
-    //         console.log(list);
-    //         for(i = 0; i < list.length; i+=8) { 
-    //             var temp = [];
-    //             temp.push(new Date(list[i+5].dt_txt));
-    //             const maxTemp = findMax(list, i);
-    //             temp.push(maxTemp);
-    //             temp.push(list[i].weather[0].main);
-    //             temp.push(list[i+3].weather[0].description);
-    //             temp.push(list[i].weather[0].icon);
-    //             days.push(temp);
-    //         }
-            
-    //         const selectedData = { 
-    //             cityname : name,
-    //             futuredays : days
-    //         }
-    //         return selectedData;
-            
-    //     } catch(error) { 
-    //         console.log(error);
-    //     }
-    // }
-
-    // // Finds max temperature in the day
-    // const findMax = (weatherList, start) => { 
-    //     var i; 
-    //     var max = 0;
-    //     for(i = start; i < start+8; i++) { 
-    //         max = Math.max(max, weatherList[i].main.feels_like);
-    //     }
-    //     max = ((max * 9/5) - 459.67).toFixed(1);
-    //     return max;
-    // }
-
+ 
 
     return (
     <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
@@ -244,7 +211,6 @@ function Inae() {
         </div>
       </div>
       <hr></hr>
-      {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
       <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} />
 
 

@@ -9,6 +9,7 @@ const WeekWeather = ({ fetchWeeklyWetherData, weeklyWeatherData } ) => {
 
     useEffect(() => {
         fetchWeeklyWetherData()
+        console.log(weeklyWeatherData);
     }, [])
 
 
@@ -19,7 +20,8 @@ const WeekWeather = ({ fetchWeeklyWetherData, weeklyWeatherData } ) => {
          <div className="weather-week">
             <div className="week-content">
                 <h3 className="time-text">
-                    {weeklyWeatherData[0].dt_txt + "°"}
+                    {weeklyWeatherData[0].dt_txt}
+                    {/* {weeklyWeatherData[0][0].dt_txt} */}
                 </h3>
                 <img src="/icon/09d.png" className="weather-content-icon" />
                 <div className="beer-reco">
