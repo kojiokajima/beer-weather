@@ -4,12 +4,13 @@ import BeerIcon from './sass/img/beer_w.png'
 import icon from './sass/img/icon.png';
 // import {} from './Inae'
 
-const WeekWeather = ({ fetchWeeklyWetherData } ) => {
+const WeekWeather = ({ fetchWeeklyWetherData, weeklyWeatherData } ) => {
 
 
     useEffect(() => {
         fetchWeeklyWetherData()
     }, [])
+
 
 
     return (
@@ -18,7 +19,7 @@ const WeekWeather = ({ fetchWeeklyWetherData } ) => {
          <div className="weather-week">
             <div className="week-content">
                 <h3 className="time-text">
-                    {fetchWeeklyWetherData.data + "°"}
+                    {weeklyWeatherData[0].dt_txt + "°"}
                 </h3>
                 <img src="/icon/09d.png" className="weather-content-icon" />
                 <div className="beer-reco">

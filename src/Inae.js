@@ -29,14 +29,14 @@ function Inae() {
     }
     
     //weekly part 
-    const defaultWeeklyWeatherData = [{
+    const defaultWeeklyWeatherData = {
         dt_text: '',
         main: {
             temp_max: '',
             temp_min: ''
         }
 
-    }]
+    }
 
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
@@ -65,7 +65,7 @@ function Inae() {
     const fetchWeeklyWetherData = async () => {
         const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
         const response = await axios.get(url)
-        setWeeklyWeahterData(response.data)
+        setWeeklyWeahterData(response.data.list)
         console.log(response.data.list);
     }
 
@@ -245,7 +245,7 @@ function Inae() {
       </div>
       <hr></hr>
       {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
-      <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} />
+      <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} />
 
 
         {/* <div className="weather-week">
