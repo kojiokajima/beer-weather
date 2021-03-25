@@ -4,10 +4,11 @@ import './sass/main.scss';
 import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
-import BeerIcon from './sass/img/beer_w.png'
+// import BeerIcon from './sass/img/beer_w.png'
 import Test from './Test';
 import CurrentWeather from './CurrentWeather';
 import Searth from "./Search";
+import WeekWeather from './WeekWeather';
 
 export const TempContext = createContext([0, ()=>{}])
 export const WeatherContext = createContext(['Clouds', ()=>{}])
@@ -26,7 +27,23 @@ function Inae() {
         },
         weather: [{icon: ''}]
     }
+    
+    //weekly part 
+    const defaultWeeklyWeatherData = [{
+        dt_text: '',
+        main: {
+            temp_max: '',
+            temp_min: ''
+        }
+
+    }]
+
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
+
+    //weekly part
+    const [weeklyWeatherData, setWeeklyWeahterData] = useState(defaultWeeklyWeatherData)
+
+
 
     const handleChange = (e) => {
         setText(e.target.value)
@@ -35,6 +52,7 @@ function Inae() {
     const onClickButton = (e) => {
         console.log(text)
         fetchWetherData()
+        fetchWeeklyWetherData()
     }
 
     const fetchWetherData = async () => {
@@ -42,6 +60,56 @@ function Inae() {
         const response = await axios.get(url)
         setWeatherData(response.data)
     }
+
+    //weekly api
+    const fetchWeeklyWetherData = async () => {
+        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
+        const response = await axios.get(url)
+        setWeeklyWeahterData(response.data)
+        console.log(response.data.list);
+    }
+
+  //weekly api try2 
+
+    // const fetchWeeklyWetherData = async(text) => { 
+    //     try {
+    //         const { data: {city: {name}, list} } = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`);
+    //         let i;
+    //         let days = [];
+    //         console.log(list);
+    //         for(i = 0; i < list.length; i+=8) { 
+    //             var temp = [];
+    //             temp.push(new Date(list[i+5].dt_txt));
+    //             const maxTemp = findMax(list, i);
+    //             temp.push(maxTemp);
+    //             temp.push(list[i].weather[0].main);
+    //             temp.push(list[i+3].weather[0].description);
+    //             temp.push(list[i].weather[0].icon);
+    //             days.push(temp);
+    //         }
+            
+    //         const selectedData = { 
+    //             cityname : name,
+    //             futuredays : days
+    //         }
+    //         return selectedData;
+            
+    //     } catch(error) { 
+    //         console.log(error);
+    //     }
+    // }
+
+    // // Finds max temperature in the day
+    // const findMax = (weatherList, start) => { 
+    //     var i; 
+    //     var max = 0;
+    //     for(i = start; i < start+8; i++) { 
+    //         max = Math.max(max, weatherList[i].main.feels_like);
+    //     }
+    //     max = ((max * 9/5) - 459.67).toFixed(1);
+    //     return max;
+    // }
+
 
     return (
     <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
@@ -176,8 +244,11 @@ function Inae() {
         </div>
       </div>
       <hr></hr>
+      {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
+      <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} />
 
-        <div className="weather-week">
+
+        {/* <div className="weather-week">
             <div className="week-content">
                 <h3 className="time-text">Tuesday</h3>
                 <img src="/icon/09d.png" className="weather-content-icon" />
@@ -238,7 +309,7 @@ function Inae() {
                     <h3 className="temp-text low">14°</h3>
                 </div>
             </div>
-        </div>
+        </div> */}
 
       <div className="beer-wave-all">
         <div className="beer-waves"></div>
