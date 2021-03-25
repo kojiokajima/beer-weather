@@ -108,7 +108,7 @@ function Inae() {
             </div>
 
         </div> */}
-        <Test text={text} fetchWeatherData={fetchWetherData} weatherData={weatherData} />
+        <Test fetchWeatherData={fetchWetherData} weatherData={weatherData} />
         <hr></hr>
         <div className="weather-time">
             <div className="weather-content">
