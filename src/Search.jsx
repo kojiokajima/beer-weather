@@ -5,17 +5,15 @@ const Search = (props)=>{
     
 
     return(
-        <div className="search">
+        <form className="search" onSubmit={props.onSubmit}>
             <input
               type="search"
               placeholder="Search your city, Find your beer!!"
               className="search-input"
-              value={props.text}
-              onChange={props.onChange}
             ></input>
 
-            <button onClick={props.onClick} >SEARCH</button>
-        </div>
+            <button type="submit"  >SEARCH</button>
+        </form>
 
 
     )

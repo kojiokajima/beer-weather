@@ -24,21 +24,24 @@ function Inae() {
             temp_max: '',
             temp_min: '',
         },
-        weather: [{icon: ''}]
+        weather: [{icon: '01n'}]
     }
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
-    const handleChange = (e) => {
-        setText(e.target.value)
+
+    const onSubmitButton = (e) => {
+      e.preventDefault();
+      // console.log(e.target[0].value)
+      setText(e.target[0].value)
+      setText((value)=>{
+        fetchWetherData(value)
+        return value
+      })
     }
 
-    const onClickButton = (e) => {
-        console.log(text)
-        fetchWetherData()
-    }
+    const fetchWetherData = async (city = 'vancouver') => {
 
-    const fetchWetherData = async () => {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
         const response = await axios.get(url)
         setWeatherData(response.data)
     }
@@ -49,7 +52,7 @@ function Inae() {
         <header className="App-header">
         <nav className="nav-bar">
           <img src={Logo} className="nav-logo" />
-          <Searth onChange={handleChange} onClick={onClickButton} value={text} />
+          <Searth  onSubmit={onSubmitButton}  />
           {/* <div className="search">
             <input
               type="search"
