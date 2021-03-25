@@ -1,4 +1,5 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState} from 'react'
+import axios from "axios"
 import './sass/main.scss';
 import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
@@ -6,32 +7,65 @@ import Beer from './sass/img/coronas.png';
 import BeerIcon from './sass/img/beer_w.png'
 import Test from './Test';
 import CurrentWeather from './CurrentWeather';
+import Searth from "./Search";
 
 export const TempContext = createContext([0, ()=>{}])
 export const WeatherContext = createContext(['Clouds', ()=>{}])
+export const textContext = createContext(["vancouver",()=>{}])
 
 function Inae() {
     const [temp, setTemp] = useState(0)
     const [weather, setWeather] = useState('Clouds')
+    const [text, setText] = useState("vancouver");
+    const defaultWeatherData = {
+        name: '',
+        main: {
+            temp: '',
+            temp_max: '',
+            temp_min: '',
+        },
+        weather: [{icon: ''}]
+    }
+    const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
-  return (
-      <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
+    const handleChange = (e) => {
+        setText(e.target.value)
+    }
+
+    const onClickButton = (e) => {
+        console.log(text)
+        fetchWetherData()
+    }
+
+    const fetchWetherData = async () => {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+        const response = await axios.get(url)
+        setWeatherData(response.data)
+    }
+
+    return (
+    <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
     <div className="App">
-      <header className="App-header">
-          <nav className="nav-bar">
-            <img src={Logo} className="nav-logo" />
-            <div className="search">
-                <input type="search" placeholder="Search your city, Find your beer!!" className="search-input"></input>
-                <button>SEARCH</button>    
-            </div>
-            <div className="burger-menu">
-                <div className="burger-line"></div>
-                <div className="burger-line"></div>
-                <div className="burger-line"></div>
-            </div>
-          </nav>
+        <header className="App-header">
+        <nav className="nav-bar">
+          <img src={Logo} className="nav-logo" />
+          <Searth onChange={handleChange} onClick={onClickButton} value={text} />
+          {/* <div className="search">
+            <input
+              type="search"
+              placeholder="Search your city, Find your beer!!"
+              className="search-input"
+            ></input>
+            <button>SEARCH</button>
+          </div> */}
+          <div className="burger-menu">
+            <div className="burger-line"></div>
+            <div className="burger-line"></div>
+            <div className="burger-line"></div>
+          </div>
+        </nav>
       </header>
-        {/* <div className="temp-main">
+      {/* <div className="temp-main">
             <h2 className="temp-main-cityname">Vancouver</h2>
             <div className="temp-main-large">
                 <img src={icon} className="temp-icon-large" />
@@ -43,7 +77,7 @@ function Inae() {
                 <h3><b>L:</b> 11°</h3>
             </div>
         </div> */}
-        <CurrentWeather />
+        <CurrentWeather fetchWetherData={fetchWetherData} weatherData={weatherData} />
         {/* <div className="beer-info">
             <img src={Beer} className="beer-img" />
             <div className="beer-text">
@@ -140,7 +174,8 @@ function Inae() {
                 <h3 className="temp-text">24°</h3>
             </div>
         </div>
-        <hr></hr>
+      </div>
+      <hr></hr>
 
         <div className="weather-week">
             <div className="week-content">
@@ -204,16 +239,12 @@ function Inae() {
                 </div>
             </div>
         </div>
-        
-        <div className="beer-wave-all">
-            <div className="beer-waves">            
-            </div>
-            <div className="beer-waves1">            
-            </div>
 
-        </div>
-
-    </div>
+      <div className="beer-wave-all">
+        <div className="beer-waves"></div>
+        <div className="beer-waves1"></div>
+      </div>
+    {/* </div> */}
     </TempContext.Provider>
 
   );
