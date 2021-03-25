@@ -3,13 +3,13 @@ const beerData = {
     cold: { // Poter, Smoke Poter, Barrel-Aged Beer, Stout, Imperial Stout, Oatmeal Stout
         sunny: [
             // ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldsunny1'],
-            ['1772 Porter', 'Brown Porter', '4.6%',  ' ★ ★', 'coldsunny1'],
+            ['1772 Porter', 'Brown Porter', '4.6%',  ' ★ ★', 'A traditional style English Porter. Light in body and abv. Created for the porters of the time to enjoy during and after daily duties. Not to be confused with the more robust American porter.'],
             // ['9lb Porter', 'Brown Porter', '4.6%', 26, 'coldsunny3'],
-            ['9lb Porter', 'Brown Porter', '4.6%', ' ★ ★', 'coldsunny3'],
+            ['9lb Porter', 'Brown Porter', '4.6%', ' ★ ★', "Brewed for our friends at the 9 Pound Hammer here in Georgetown, this is an exceptionally flavorful medium bodied porter. We use tons of Chocolate, Munich, and Roasted Malt, then blend it with Centennial and Northern Brewer hops to create what we'd like to call Roasted Chocolaty Goodness. Mmm.. porter. Buy it by the pint at the Nine Pound Hammer or come on in to our retail shop for growlers to go!"],
             // ['Bonnie St. Nan Cherry Smoked Porter', 'Smoke Porter', '5.4%', 19, 'coldcloudy5'],
-            ['Bonnie St. Nan Cherry Smoked Porter', 'Smoke Porter', '5.4%', ' ★ ★', 'coldcloudy5'],
+            ['Bonnie St. Nan Cherry Smoked Porter', 'Smoke Porter', '5.4%', ' ★ ★', 'Black and yet light in consistency. Back ground hits of real cherry and smoked malt meld with the roasty overtones to form a delightful drinking experience.'],
             // ['Coles Smoked Porter', 'Smoke Porter', '5.5%', 31, 'coldcloudy1'], 
-            ['Coles Smoked Porter', 'Smoke Porter', '5.5%', ' ★ ★', 'coldcloudy1'], 
+            ['Coles Smoked Porter', 'Smoke Porter', '5.5%', ' ★ ★', 'Light but still porter.'], 
             // ['Alien Porter', 'Brown Porter', '5.7%', 45, 'coldsunny2'],
             ['Alien Porter', 'Brown Porter', '5.7%', ' ★ ★ ★', 'coldsunny2'],
         ],
@@ -91,9 +91,9 @@ const beerData = {
     warm: { // Gose, Pilsner, Sour Ale, Wheat, Session IPA, Blonde IPA
         sunny: [
             // ['6th Borough Pilsner', 'American Pilsener', '3%', 35, 'wormwormwormworm'],
-            ['6th Borough Pilsner', 'American Pilsener', '3%', '★ ★', 'wormwormwormworm'],
+            ['6th Borough Pilsner', 'American Pilsener', '3%', '★ ★', 'The 6th borough may just be a state of mind, but we live here, and this beer was brewed here. Bright, crisp and hoppy, this beer will bring you back to the “burbs” with each sip.'],
             // ['Beach Plum Gose', 'Contemporary Gose', '4.1%', 3, 'wormwormwormworm'],
-            ['Beach Plum Gose', 'Contemporary Gose', '4.1%', '★', 'wormwormwormworm'],
+            ['Beach Plum Gose', 'Contemporary Gose', '4.1%', '★', 'Beach Plum Gose is our Blue Point twist on a traditional German sour ale. We brew this kettle sour with beach plums indigenous to the shores of Long Island for a unique tartness and add North Atlantic seaweed and locally cultivated sea salt for a savory finish. This Gose stays true to its style’s German roots and its brewers’ Long Island roots - so it’s a little salty yet approachable, just like us.'],
             // ['All Star Session IPA', 'Session IPA', '4.2%', 45, 'wormwormwormworm'],
             ['All Star Session IPA', 'Session IPA', '4.2%', '★ ★', 'wormwormwormworm'],
             // ['3-2-1 Gose With Peaches', 'Contemporary Gose', '4.2%', 3, 'wormwormwormworm'],
