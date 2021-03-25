@@ -6,6 +6,8 @@ import icon from './sass/img/icon.png';
 
 const WeekWeather = ({ fetchWeeklyWetherData, weeklyWeatherData } ) => {
 
+    
+
 
     useEffect(() => {
         fetchWeeklyWetherData()
