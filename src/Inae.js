@@ -6,6 +6,7 @@ import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
 import BeerIcon from './sass/img/beer_w.png'
 import Test from './Test';
+import Test2 from './Test2';
 import CurrentWeather from './CurrentWeather';
 import Searth from "./Search";
 
@@ -24,7 +25,7 @@ function Inae() {
             temp_max: '',
             temp_min: '',
         },
-        weather: [{icon: ''}]
+        weather: [{icon: '', main: ''}]
     }
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
@@ -105,7 +106,8 @@ function Inae() {
             </div>
 
         </div> */}
-        <Test />
+        <Test fetchWeatherData={fetchWetherData} weatherData={weatherData} />
+        {/* <Test2 fetchWeatherData={fetchWetherData} weatherData={weatherData} /> */}
         <hr></hr>
         <div className="weather-time">
             <div className="weather-content">

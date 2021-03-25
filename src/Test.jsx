@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, memo } from "react";
 import beerData from './beerData'
 import Beer from './sass/img/coronas.png';
 import './sass/main.scss'
@@ -14,63 +14,66 @@ import { TempContext, WeatherContext } from "./Inae";
 //  15 <= temp <= 25: moderate
 //  < 25: warm
 
-const Test = () => {
-  // const [temp, setTemp] = useContext(TempContext)
-  // const [tempType, setTempType] = useState('warm')
-  // const [weather, setWeather] = useContext(WeatherContext)
-  // // const [length, setLength] = useState(0)
-  // const [data, setData] = useState(beerData.cold.sunny)
+const Test = (props) => {
   
   // -----------temporary-----------
-  const [temp, setTemp] = useState(6)
+  const defaultWeatherData = {
+    weather: [
+      {
+        main: ""
+      }
+    ],
+    main: {
+      temp: ''
+    }
+  }
   const [tempType, setTempType] = useState('warm')
+  const [temp, setTemp] = useState(20)
   const [weather, setWeather] = useState('Clear')
-  const [length, setLength] = useState(0)
+  const [weatherData, setWeatherData] = useState(defaultWeatherData)
   const [data, setData] = useState(beerData.cold.sunny)
-  // -----------temporary-----------
-
-  const getBeerData = () => {
-    console.log("----getBeerData  CALLED----")
-    console.log("temp tempType weather: ", temp, tempType, weather)
-    console.log("length: ", length)
-    console.log('Data: ', beerData.weather)
+  const random =  Math.floor(Math.random() * 5)
 
 
-    if(weather === 'Clear') {
+
+  const setWeatherAndTempType = () => {
+    console.log("----setWeatherAndTempType CALLED----")
+    console.log("---------", props.weatherData.weather[0].main)
+    console.log("---------", props.weatherData.main.temp)
+    // if(weatherData.weather[0].main === 'Clear') {
+    if(props.weatherData.weather[0].main === 'Clear') {
       setWeather('sunny')
-    } else if (weather === 'Thunderstorm' || weather === 'Drizzle' || weather === 'Rain' || weather === 'Snow' ) {
+    // } else if (weatherData.weather[0].main === 'Thunderstorm' || weatherData.weather[0].main === 'Drizzle' || weatherData.weather[0].main === 'Rain' || weatherData.weather[0].main === 'Snow' ) {
+    } else if (props.weatherData.weather[0].main === 'Thunderstorm' || props.weatherData.weather[0].main === 'Drizzle' || props.weatherData.weather[0].main === 'Rain' || props.weatherData.weather[0].main === 'Snow' ) {
       setWeather('rainy')
-    } else if (weather === 'Clouds') {
+    // } else if (weatherData.weather[0].main === 'Clouds') {
+    } else if (props.weatherData.weather[0].main === 'Clouds') {
       setWeather('cloudy')
     }
 
-    if (temp < 15) {
+    // setTemp(weatherData.main.temp)
+    setTemp(props.weatherData.main.temp)
+  
+    // if (weatherData.main.temp < 15) {
+    if (props.weatherData.main.temp < 15) {
       setTempType('cold')
-    } else if (temp >= 15 && temp <= 25) {
+    // } else if (weatherData.main.temp >= 15 && weatherData.main.temp <= 25) {
+    } else if (props.weatherData.main.temp >= 15 && props.weatherData.main.temp <= 25) {
       setTempType('moderate')
     }
-
   }
 
   
-  const random =  Math.floor(Math.random() * 5)
   
   console.log("----TEST RENDERED----")
   console.log("temp tempType weather: ", temp, tempType, weather)
-  console.log("length: ", length)
-
-  
-  useEffect(() => {
-    console.log("----useEffect EVOKED----")
-    console.log("temp tempType weather: ", temp, tempType, weather)
-    console.log("length: ", length)
-
-
-    getBeerData()
-
-  }, [data]);
+  console.log("props.weatherData: ", props.weatherData )
+  console.log("----/TEST RENDERED----")
 
   useEffect(() => {
+    console.log("----ANOTHER USEEFFECT CALLED----")
+    setWeatherAndTempType()
+
     if (tempType === 'cold') {
       switch(weather){
         case 'sunny':  // --> this will change
@@ -114,7 +117,21 @@ const Test = () => {
           break;
       }
     }
-  }, [tempType])
+  }, [props.weatherData])
+  
+
+  useEffect(() => {
+    props.fetchWeatherData()  // --> GET WEATHER DATA FROM API
+    // setWeatherData(props.weatherData)
+    setWeatherAndTempType()
+
+
+    console.log("----USEEFFECT EVOKED----")
+    console.log("temp tempType weather: ", temp, tempType, weather)
+    console.log("props.weatherData: ", props.weatherData )
+    console.log("----/USEEFFECT EVOKED----")
+
+  }, [])
 
   return (
     <div className="beer-info">

@@ -13,7 +13,7 @@ const CurrentWeather = ({ fetchWetherData, weatherData }) => {
 
 
     useEffect(() => {
-        console.log(weatherData)
+        // console.log(weatherData)
         fetchWetherData()
     }, [])
 
