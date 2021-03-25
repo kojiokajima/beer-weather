@@ -2,16 +2,16 @@ const beerData = {
     // - 15,  16 - 35, 36 - 55, 56 - 75, 76 -
     cold: { // Poter, Smoke Poter, Barrel-Aged Beer, Stout, Imperial Stout, Oatmeal Stout
         sunny: [
-            // ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldsunny1'], // --> beerData.cold.sunny[0]
-            ['1772 Porter', 'Brown Porter', '4.6%',  ' ★ ★', 'coldsunny1'], // --> beerData.cold.sunny[0]
+            // ['1772 Porter', 'Brown Porter', '4.6%', 26, 'coldsunny1'],
+            ['1772 Porter', 'Brown Porter', '4.6%',  ' ★ ★', 'coldsunny1'],
             // ['9lb Porter', 'Brown Porter', '4.6%', 26, 'coldsunny3'],
             ['9lb Porter', 'Brown Porter', '4.6%', ' ★ ★', 'coldsunny3'],
             // ['Bonnie St. Nan Cherry Smoked Porter', 'Smoke Porter', '5.4%', 19, 'coldcloudy5'],
             ['Bonnie St. Nan Cherry Smoked Porter', 'Smoke Porter', '5.4%', ' ★ ★', 'coldcloudy5'],
             // ['Coles Smoked Porter', 'Smoke Porter', '5.5%', 31, 'coldcloudy1'], 
             ['Coles Smoked Porter', 'Smoke Porter', '5.5%', ' ★ ★', 'coldcloudy1'], 
-            // ['Alien Porter', 'Brown Porter', '5.7%', 45, 'coldsunny2'], // --> beerData.cold.sunny[1]
-            ['Alien Porter', 'Brown Porter', '5.7%', ' ★ ★ ★', 'coldsunny2'], // --> beerData.cold.sunny[1]
+            // ['Alien Porter', 'Brown Porter', '5.7%', 45, 'coldsunny2'],
+            ['Alien Porter', 'Brown Porter', '5.7%', ' ★ ★ ★', 'coldsunny2'],
         ],
         cloudy: [
             // ['"Tractor Beam" Oatmeal Stout', 'Oatmeal Stout', '5.8%', 30, 'coldrainy3'], 
@@ -75,10 +75,10 @@ const beerData = {
             // ["1865 Amber", 'American Amber Lager', '4.8%', 32.2, 'moderatemoderate'],
             // ["Bestside Lager", 'American Amber Lager', '4.9%', 20, 'moderatemoderate'],
             
-            // ['1-800-Tropics', 'American IPA', '6.9%', 50, 'moderatemoderate'], // --> beerData.moderate.sunny[1]
-            ['1-800-Tropics', 'American IPA', '6.9%', '★ ★ ★', 'moderatemoderate'], // --> beerData.moderate.sunny[1]
-            // ['(512) IPA', 'American IPA', '7%', 65, 'moderatemoderate'], // --> beerData.moderate.sunny[0]
-            ['(512) IPA', 'American IPA', '7%', '★ ★ ★ ★', 'moderatemoderate'], // --> beerData.moderate.sunny[0]
+            // ['1-800-Tropics', 'American IPA', '6.9%', 50, 'moderatemoderate'],
+            ['1-800-Tropics', 'American IPA', '6.9%', '★ ★ ★', 'moderatemoderate'],
+            // ['(512) IPA', 'American IPA', '7%', 65, 'moderatemoderate'],
+            ['(512) IPA', 'American IPA', '7%', '★ ★ ★ ★', 'moderatemoderate'],
             // ["3rd Time's a Charm", 'Juicy or Hazy IPA', '7.2%', 40, 'moderatemoderate'],
             ["3rd Time's a Charm", 'Juicy or Hazy IPA', '7.2%', '★ ★ ★', 'moderatemoderate'],
             // ['Bad Axe IPA', 'English IPA', '7.6%', 76, 'moderatemoderate'],
@@ -96,8 +96,8 @@ const beerData = {
             ['Beach Plum Gose', 'Contemporary Gose', '4.1%', '★', 'wormwormwormworm'],
             // ['All Star Session IPA', 'Session IPA', '4.2%', 45, 'wormwormwormworm'],
             ['All Star Session IPA', 'Session IPA', '4.2%', '★ ★', 'wormwormwormworm'],
-            // ['3-2-1 Gose With Peaches', 'Contemporary Gose', '4.2%', 3, 'wormwormwormworm'], // --> beerData.warm.sunny[0]
-            ['3-2-1 Gose With Peaches', 'Contemporary Gose', '4.2%', '★', 'wormwormwormworm'], // --> beerData.warm.sunny[0]
+            // ['3-2-1 Gose With Peaches', 'Contemporary Gose', '4.2%', 3, 'wormwormwormworm'],
+            ['3-2-1 Gose With Peaches', 'Contemporary Gose', '4.2%', '★', 'wormwormwormworm'],
             // ['Black Lager', 'American Dark Lager', '4.5%', 31, 'wormwormwormworm'],
             ['Black Lager', 'American Dark Lager', '4.5%', '★ ★', 'wormwormwormworm'],
         ],
@@ -106,8 +106,8 @@ const beerData = {
             ['6th Anniversary Session IPA', 'Session IPA', '4.5%', '★ ★ ★', 'wormwormwormworm'],
             // ['A Little Hoppy', 'Session IPA', '4.6%', 65, 'wormwormwormworm'],
             ['A Little Hoppy', 'Session IPA', '4.6%', '★ ★ ★ ★', 'wormwormwormworm'],
-            // ['Basil & Cranberry', 'Contemporary Gose', '4.7%', 12, 'wormwormwormworm'], // --> beerData.warm.sunny[1]
-            ['Basil & Cranberry', 'Contemporary Gose', '4.7%', '★', 'wormwormwormworm'], // --> beerData.warm.sunny[1]
+            // ['Basil & Cranberry', 'Contemporary Gose', '4.7%', 12, 'wormwormwormworm'],
+            ['Basil & Cranberry', 'Contemporary Gose', '4.7%', '★', 'wormwormwormworm'],
             // ['Alluvium Pilsner', 'German Pilsener', '5%', 45, 'wormwormwormworm'],
             ['Alluvium Pilsner', 'German Pilsener', '5%', '★ ★ ★', 'wormwormwormworm'],
             // ['1872 Lager', 'American Pilsener', '5.1%', 33, 'wormwormwormworm'],
