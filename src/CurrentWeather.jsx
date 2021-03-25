@@ -2,10 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { TempContext, WeatherContext } from "./Inae";
 
-
-
 const CurrentWeather = () => {
-
     const [weather, setWeather] = useContext(WeatherContext)
     const [temp, setTemp] = useContext(TempContext);
     // const [temp, setTemp] = useState("");
@@ -13,14 +10,12 @@ const CurrentWeather = () => {
     const [tempMin, setTempMin] = useState("");
     const [icon, setIcon] = useState("")
     const iconUrl = `http://openweathermap.org/img/w/${icon}.png`
-    console.log("TEMP IS ", temp)
-    console.log("WEATHER IS ", weather)
-
-
+    // console.log("TEMP IS ", temp)
+    // console.log("WEATHER IS ", weather)
 
     useEffect(() => {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=Vancouver&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
-        console.log(url);
+        // console.log(url);
         axios.get(url).then((response) => {
             setWeather(response.data.weather.main)
             setTemp(response.data.main.temp)

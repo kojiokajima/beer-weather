@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import beerData from './beerData'
 import Beer from './sass/img/coronas.png';
 import './sass/main.scss'
@@ -10,22 +9,67 @@ import { TempContext, WeatherContext } from "./Inae";
 // cloudy: Mist, Smoke, Haze, Dust Fog Sand, Ash, Squall, Tornado, Clouds
 // rainy: Thunderstorm, Drizzle, Rain, Snow
 
+// Temps
+//  < 15: cold
+//  15 <= temp <= 25: moderate
+//  < 25: warm
+
 const Test = () => {
-  const [temp, setTemp] = useContext(TempContext)
-  const [weather, setWeather] = useContext(WeatherContext)
+  // const [temp, setTemp] = useContext(TempContext)
+  // const [tempType, setTempType] = useState('warm')
+  // const [weather, setWeather] = useContext(WeatherContext)
+  // // const [length, setLength] = useState(0)
+  // const [data, setData] = useState(beerData.cold.sunny)
+  
+  // -----------temporary-----------
+  const [temp, setTemp] = useState(6)
+  const [tempType, setTempType] = useState('warm')
+  const [weather, setWeather] = useState('Clear')
+  // const [length, setLength] = useState(0)
   const [data, setData] = useState(beerData.cold.sunny)
+  // -----------temporary-----------
 
-  // const temp = 27  // --> just for test
-  // const weather = 'sunny'  // --> just for test
-  const random =  Math.floor(Math.random() * 4)
+  const getBeerData = () => {
+    console.log("----getBeerData  CALLED----")
+    console.log("temp tempType weather: ", temp, tempType, weather)
 
-  console.log("beer data: ", beerData)
-
-  useEffect(() => {
+    if(weather === 'Clear') {
+      setWeather('sunny')
+    } else if (weather === 'Thunderstorm' || weather === 'Drizzle' || weather === 'Rain' || weather === 'Snow' ) {
+      setWeather('rainy')
+    } else if (weather === 'Clouds') {
+      setWeather('cloudy')
+    }
 
     if (temp < 15) {
+      setTempType('cold')
+    } else if (temp >= 15 && temp <= 25) {
+      setTempType('moderate')
+    }
+  }
+
+  
+  const random =  Math.floor(Math.random() * 4)
+  // const random =  Math.floor(Math.random() * data.weather.tempType.length)
+  
+  console.log("----TEST RENDERED----")
+  console.log("temp tempType weather: ", temp, tempType, weather)
+
+  // console.log("beer data: ", beerData)
+  // console.log("weather: ", weather) // --> called twice
+  
+  useEffect(() => {
+    console.log("----useEffect EVOKED----")
+    console.log("temp tempType weather: ", temp, tempType, weather)
+
+    getBeerData()
+
+  }, [data]);
+
+  useEffect(() => {
+    if (tempType === 'cold') {
       switch(weather){
-        case 'Rain':  // --> this will change
+        case 'sunny':  // --> this will change
           setData(beerData.cold.sunny)
           break;
         case 'cloudy':  // --> this will change
@@ -37,7 +81,7 @@ const Test = () => {
         default:
           break;
       }
-    } else if (temp >= 15 && temp <= 25) {
+    } else if (tempType === 'moderate') {
       switch(weather){
         case 'sunny':  // --> this will change
           setData(beerData.moderate.sunny)
@@ -51,7 +95,7 @@ const Test = () => {
         default:
           break;
       }
-    } else if (temp > 25) {
+    } else if (tempType === 'warm') {
       switch(weather){
         case 'sunny':  // --> this will change
           setData(beerData.warm.sunny)
@@ -66,37 +110,9 @@ const Test = () => {
           break;
       }
     }
-
-
-    // こんなやつ --> beerData.cold.sunny[0]のなかに[name, style, alc, IBU, description]
-
-
-    // const url = `https://api.openweathermap.org/data/2.5/weather?q=Vancouver&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
-    // const beerUrl = `https://sandbox-api.brewerydb.com/v2/styles/?key=${process.env.REACT_APP_BEER_API}`;
-    // console.log(beerUrl)
-    // axios.get(beerUrl).then((response) => {
-    //   console.log(response);
-    // });
-
-    // fetch(beerUrl, {mode: 'cors'})
-    // .then((response) => {
-    //   response.json()
-    // })
-    // .then((data) => {
-    //   console.log(data)
-    // })
-  }, []);
-
-  // console.log(data)
-  // console.log(random)
-  // console.log(data[random])
-  // console.log(data[random][0])
-  // console.log(typeof(data[random]))
-  // console.log(...data[random])
-  // console.log(data[random][0])
+  }, [tempType])
 
   return (
-
     <div className="beer-info">
             <img src={Beer} className="beer-img" />
             <div className="beer-text">
@@ -125,15 +141,6 @@ const Test = () => {
             </div>
 
         </div>
-
-
-    // <div>
-    //   <p>name: {data[random][0]}</p>
-    //   <p>Style: {data[random][1]}</p>
-    //   <p>Alc: {data[random][2]}</p>
-    //   <p>IBU: {data[random][3]}</p>
-    //   <p>Description: {data[random][4]}</p>
-    // </div>
   );
 };
 

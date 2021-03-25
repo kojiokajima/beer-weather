@@ -65,7 +65,6 @@ const beerData = {
             ["67 Alaska", 'Kölsch', '5.5%', 21, 'moderatemoderate'],
             ["A Kolsch Day in Helles", 'Kölsch', '5.4%', 19, 'moderatemoderate'],
             ["1055 Kolsch", 'Kölsch', '5%', 25, 'moderatemoderate'],
-
         ],
         rainy: [
             ['32958', 'Juicy or Hazy IPA', '6.7%', 61, 'moderatemoderate'],
