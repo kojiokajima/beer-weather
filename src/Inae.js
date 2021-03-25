@@ -24,7 +24,7 @@ function Inae() {
             temp_max: '',
             temp_min: '',
         },
-        weather: [{icon: '01n'}]
+        weather: [{icon: '01n', main: ''}]
     }
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
@@ -108,7 +108,7 @@ function Inae() {
             </div>
 
         </div> */}
-        <Test fetchWeatherData={fetchWetherData} weatherData={weatherData} />
+        <Test text={text} fetchWeatherData={fetchWetherData} weatherData={weatherData} />
         <hr></hr>
         <div className="weather-time">
             <div className="weather-content">
