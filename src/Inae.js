@@ -49,6 +49,19 @@ function Inae() {
 // ----------------------------------------------------
         weather: [{icon: '01n', main: ''}]
     }
+    
+    //weekly part 
+    // const defaultWeeklyWeatherData = {
+    //     dt_txt: '',
+    //     main: {
+    //         temp_max: '',
+    //         temp_min: ''
+    //     }
+
+    // }
+
+    // const defaultWeeklyWeatherData = []
+
 
     // const [serchedCity, setSearchedCity] = useState('Vancouver')
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
@@ -70,6 +83,10 @@ function Inae() {
     const fetchWetherData = async (city = 'vancouver') => {
 
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+    const onClickButton = (e) => {
+        console.log(text)
+        fetchWetherData()
+    }
 
         const response = await axios.get(url)
         setWeatherData(response.data)
@@ -85,6 +102,23 @@ function Inae() {
     //     // setWeeklyWeahterData(defaultWeatherData)
     //     // console.log(weeklyWeatherData);
     // }
+    //     // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+    //     // const url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${text}&cnt=6&appid=${process.env.REACT_APP_WEATHER_API}`
+    //     const url = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_WEATHER_WEEK_API}&q=${text}&showlocaltime=yes&num_of_days=8&tp=24&format=json`
+
+    //     const response = await axios.get(url)
+    //     // defaultWeeklyWeatherData.push(response.data.list)
+    //     setWeeklyWeahterData(response.data.data)
+    //     // setWeeklyWeahterData(defaultWeatherData)
+    //     // console.log(weeklyWeatherData);
+    //     console.log("response.data: ", response.data);
+    // }
+
+
+
+
+
+ 
 
     return (
 

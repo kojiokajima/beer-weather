@@ -24,7 +24,6 @@ class WeeklyWeatherTo extends React.Component {
     fetch(weatherURL)
     .then(res => res.json())
     .then(data => {
-      console.log(weatherURL);
       const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"))
       this.setState({
         fullData: data.list,
