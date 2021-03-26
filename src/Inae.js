@@ -68,12 +68,16 @@ function Inae() {
 
     //weekly api
     const fetchWeeklyWetherData = async () => {
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
+        // const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+        // const url = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${text}&cnt=6&appid=${process.env.REACT_APP_WEATHER_API}`
+        const url = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_BEER_WEATHER_APP}&q=${text}&showlocaltime=yes&num_of_days=8&tp=24&format=json`
+
         const response = await axios.get(url)
         // defaultWeeklyWeatherData.push(response.data.list)
-        setWeeklyWeahterData(response.data.list)
+        setWeeklyWeahterData(response.data.data)
         // setWeeklyWeahterData(defaultWeatherData)
         // console.log(weeklyWeatherData);
+        console.log("response.data: ", response.data);
     }
 
  
