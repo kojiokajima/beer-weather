@@ -52,14 +52,14 @@ function Inae() {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
         const response = await axios.get(url)
         setWeatherData(response.data)
-        
+        console.log(response.data)
         setEnterdtext(text);
         console.log("YOOOOO",enterdText)
     }
 
     return (
         // <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
-        <SearchContext.Provider value={[serchedCity, setSearchedCity]} >
+        // <SearchContext.Provider value={[serchedCity, setSearchedCity]} >
             <div className="App">
             {/* <Navi /> */}
                 <header className="App-header">
@@ -267,8 +267,8 @@ function Inae() {
                 <div className="beer-waves1"></div>
             </div>
             </div>
-        {/* </TempContext.Provider> */}
-        </SearchContext.Provider>
+        // {/* </TempContext.Provider> */}
+        // </SearchContext.Provider>
 
     );
 }
