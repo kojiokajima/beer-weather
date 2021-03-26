@@ -10,6 +10,7 @@ import CurrentWeather from './CurrentWeather';
 import Searth from "./Search";
 // import WeekWeather from './WeekWeather';
 import WeeklyWeather from './WeeklyWeather';
+import WeeklyWeatherTo from './WeeklyWeatherTo';
 
 
 export const TempContext = createContext([0, ()=>{}])
@@ -212,7 +213,8 @@ function Inae() {
       </div>
       <hr></hr>
       {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
-      <WeeklyWeather text={text} />
+      {/* <WeeklyWeather text={text} /> */}
+      <WeeklyWeatherTo />
 
 
         {/* <div className="weather-week">
