@@ -10,15 +10,14 @@ const WeeklyWeather = (text)=>{
     //     dailyData: []
     // })
 
-    const [ week, setWeek ] = useState({
+    const [ cityName, setCityName ] = useState({
         city: ''
-
     })
 
-    // const [ week, setWeek ] = useState({
-    //     dailyData: []
+    const [ week, setWeek ] = useState({
+        list: []
 
-    // })
+    })
 
     useEffect(()=>{
         getWeather()
@@ -28,18 +27,20 @@ const WeeklyWeather = (text)=>{
         const result = await axios.get(
                 `https://api.openweathermap.org/data/2.5/forecast?q=${text.text}&appid=${process.env.REACT_APP_WEATHER_API}`
             ).then(resposeData => {
-                console.log(resposeData.data);
                 // const dailyData = getFiveDayData(resposeData.data)
                 // const dailyData = resposeData.data.list.filter(list => list.dt_txt.includes("18:00:00"))
                 // setState({
-                //     fullData: resposeData.data.list,
-                //     dailyData: dailyData
-                // })
-                // setState(resposeData.data.list)
-                // console.log(dailyData);
-                setWeek(resposeData.data.city)
+                    //     fullData: resposeData.data.list,
+                    //     dailyData: dailyData
+                    // })
+                    // setState(resposeData.data.list)
+                    // console.log(dailyData);
+                    setCityName(resposeData.data.city)
+                    setWeek(resposeData.data.list)
+                    console.log(resposeData.data);
                 // setWeek(dailyData);
                 console.log(week);
+                console.log(cityName);
             }).catch(error => console.log(error))
     } 
 
@@ -80,7 +81,7 @@ const WeeklyWeather = (text)=>{
          <div className="weather-week">
             <div className="week-content">
                 <h3 className="time-text">
-                    {week.name}
+                    {cityName.name}
                 </h3>
                 <img src="/icon/09d.png" className="weather-content-icon" />
                 <div className="beer-reco">
