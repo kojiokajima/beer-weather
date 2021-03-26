@@ -211,7 +211,7 @@ function Inae() {
       </div>
       <hr></hr>
       {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
-      <WeeklyWeather />
+      <WeeklyWeather text={text} />
 
         {/* <div className="weather-week">
             <div className="week-content">
