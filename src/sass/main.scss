@@ -174,7 +174,8 @@ body{
             @include row;
             align-items: baseline;
             text-align: center;
-            margin-bottom: -3rem;
+            // margin-bottom: -3rem;
+            margin: 0 auto;
             h2{
                 font-size: 3rem;
                 font-weight: 400;
@@ -277,9 +278,20 @@ hr{
         .time-text{
             letter-spacing: 0.1rem;
         }
-        .weather-content-icon{
-            width: 4rem;
-            height: 3rem;
+
+        .icon-set{
+            @include column;
+            align-items: center;
+            .weather-content-icon{
+                width: 60%;
+                height: 60%;
+                margin-bottom: -0.7rem;
+            }
+            p{
+                font-weight: 200;
+                letter-spacing: 0.1rem;
+            }
+
         }
         .beer-content-icon{
             width: 2.5rem;
@@ -293,7 +305,7 @@ hr{
         }
         .high{
             font-weight: 200;
-            margin-right: 5rem;
+            margin-right: 3rem;
         }
 
         .low{
