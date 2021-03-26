@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 // import text from './Inae'
 import axios from 'axios';
 
@@ -10,7 +10,15 @@ const WeeklyWeather = (text)=>{
     //     dailyData: []
     // })
 
-    const [ state, setState ] = useState({})
+    const [ week, setWeek ] = useState({
+        city: ''
+
+    })
+
+    // const [ week, setWeek ] = useState({
+    //     dailyData: []
+
+    // })
 
     useEffect(()=>{
         getWeather()
@@ -21,14 +29,17 @@ const WeeklyWeather = (text)=>{
                 `https://api.openweathermap.org/data/2.5/forecast?q=${text.text}&appid=${process.env.REACT_APP_WEATHER_API}`
             ).then(resposeData => {
                 console.log(resposeData.data);
-                const dailyData = resposeData.data.list.filter(list => list.dt_txt.includes("18:00:00"))
+                // const dailyData = getFiveDayData(resposeData.data)
+                // const dailyData = resposeData.data.list.filter(list => list.dt_txt.includes("18:00:00"))
                 // setState({
                 //     fullData: resposeData.data.list,
                 //     dailyData: dailyData
                 // })
                 // setState(resposeData.data.list)
-                setState(getFiveDayData(resposeData.data))
-                console.log(state);
+                // console.log(dailyData);
+                setWeek(resposeData.data.city)
+                // setWeek(dailyData);
+                console.log(week);
             }).catch(error => console.log(error))
     } 
 
@@ -69,7 +80,7 @@ const WeeklyWeather = (text)=>{
          <div className="weather-week">
             <div className="week-content">
                 <h3 className="time-text">
-                    {/* {weeklyDatas.dailyData[0][0].dt_txt} */}
+                    {week.name}
                 </h3>
                 <img src="/icon/09d.png" className="weather-content-icon" />
                 <div className="beer-reco">

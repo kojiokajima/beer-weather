@@ -11,6 +11,7 @@ import Searth from "./Search";
 // import WeekWeather from './WeekWeather';
 import WeeklyWeather from './WeeklyWeather';
 
+
 export const TempContext = createContext([0, ()=>{}])
 export const WeatherContext = createContext(['Clouds', ()=>{}])
 export const textContext = createContext(["vancouver",()=>{}])
@@ -212,6 +213,7 @@ function Inae() {
       <hr></hr>
       {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
       <WeeklyWeather text={text} />
+
 
         {/* <div className="weather-week">
             <div className="week-content">
