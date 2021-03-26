@@ -35,7 +35,7 @@ export const textContext = createContext(["vancouver", () => { }])
 //   ]
 // )
 
-function Inae() {
+function App() {
     const [temp, setTemp] = useState(0)
     const [weather, setWeather] = useState('Clouds')
     const [text, setText] = useState("vancouver");
@@ -334,4 +334,4 @@ function Inae() {
     );
 }
 
-export default Inae;
+export default App;
