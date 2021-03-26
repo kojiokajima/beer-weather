@@ -5,7 +5,7 @@ import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
 import BeerIcon from './sass/img/beer_w.png'
-import Test from './Test';
+import BeerInfo from './BeerInfo';
 import CurrentWeather from './CurrentWeather';
 import Searth from "./Search";
 import Hourly from './component/Hourly'
@@ -91,34 +91,8 @@ function Inae() {
             </div>
         </div> */}
                 <CurrentWeather fetchWetherData={fetchWetherData} weatherData={weatherData} />
-                {/* <div className="beer-info">
-            <img src={Beer} className="beer-img" />
-            <div className="beer-text">
-                <div className="beer-title">
-                    <h2 className="beer-name">Corona</h2>
-                    <h3 className="beer-name2"> is perfect to this weather!</h3>
-                </div>
-                <div className="beer-contents">
-                    <div className="beer-describe">
-                        <h3 className="question">Type: </h3>
-                        <h3 className="answer">Pale</h3>
-                    </div>
-                    <div className="beer-describe">
-                        <h3 className="question">IBU: </h3>
-                        <h3 className="answer star">★ ★ ★ ★ </h3>
-                    </div>
-                    <div className="beer-describe">
-                        <h3 className="question">Description: </h3>
-                        <h3 className="answer">Why we choose...</h3>
-                    </div>
-                
-                <button className="btn-link">Go to Homepage</button>
-                </div>
 
-            </div>
-
-        </div> */}
-                <Test fetchWeatherData={fetchWetherData} weatherData={weatherData} />
+                <BeerInfo fetchWeatherData={fetchWetherData} weatherData={weatherData} />
                 <hr></hr>
                 <Hourly value={text} />
                 {/* <div className="weather-time">
