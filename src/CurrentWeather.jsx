@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { TempContext, WeatherContext , textContext} from "./Inae";
+// import { TempContext, WeatherContext , textContext} from "./Inae";
 
 
 

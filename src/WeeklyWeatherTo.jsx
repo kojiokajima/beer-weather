@@ -1,6 +1,6 @@
 import React from 'react';
 import DayCard from './DayCard';
-import Inae from './Inae'
+// import Inae from './Inae'
 
 class WeeklyWeatherTo extends React.Component {
   constructor(props) {
