@@ -8,7 +8,8 @@ import Beer from './sass/img/coronas.png';
 import Test from './Test';
 import CurrentWeather from './CurrentWeather';
 import Searth from "./Search";
-import WeekWeather from './WeekWeather';
+// import WeekWeather from './WeekWeather';
+import WeeklyWeather from './WeeklyWeather';
 
 export const TempContext = createContext([0, ()=>{}])
 export const WeatherContext = createContext(['Clouds', ()=>{}])
@@ -38,13 +39,13 @@ function Inae() {
 
     // }
 
-    const defaultWeeklyWeatherData = []
+    // const defaultWeeklyWeatherData = []
 
 
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
     //weekly part
-    const [weeklyWeatherData, setWeeklyWeahterData] = useState(defaultWeeklyWeatherData)
+    // const [weeklyWeatherData, setWeeklyWeahterData] = useState(defaultWeeklyWeatherData)
     // const [weeklyWeatherData, setWeeklyWeahterData] = useState([])
 
 
@@ -57,7 +58,7 @@ function Inae() {
     const onClickButton = (e) => {
         console.log(text)
         fetchWetherData()
-        fetchWeeklyWetherData()
+        // fetchWeeklyWetherData()
     }
 
     const fetchWetherData = async () => {
@@ -67,14 +68,14 @@ function Inae() {
     }
 
     //weekly api
-    const fetchWeeklyWetherData = async () => {
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
-        const response = await axios.get(url)
-        // defaultWeeklyWeatherData.push(response.data.list)
-        setWeeklyWeahterData(response.data.list)
-        // setWeeklyWeahterData(defaultWeatherData)
-        // console.log(weeklyWeatherData);
-    }
+    // const fetchWeeklyWetherData = async () => {
+    //     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
+    //     const response = await axios.get(url)
+    //     // defaultWeeklyWeatherData.push(response.data.list)
+    //     setWeeklyWeahterData(response.data.list)
+    //     // setWeeklyWeahterData(defaultWeatherData)
+    //     // console.log(weeklyWeatherData);
+    // }
 
  
 
@@ -136,9 +137,7 @@ function Inae() {
                 
                 <button className="btn-link">Go to Homepage</button>
                 </div>
-
             </div>
-
         </div> */}
         <Test />
         <hr></hr>
@@ -211,8 +210,8 @@ function Inae() {
         </div>
       </div>
       <hr></hr>
-      <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} />
-
+      {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
+      <WeeklyWeather />
 
         {/* <div className="weather-week">
             <div className="week-content">
