@@ -5,7 +5,7 @@ import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
 import BeerIcon from './sass/img/beer_w.png'
-import Test from './Test';
+import BeerInfo from './BeerInfo';
 import CurrentWeather from './CurrentWeather';
 import Searth from "./Search";
 import Hourly from './component/Hourly'
@@ -121,7 +121,7 @@ function Inae() {
             </div>
 
         </div> */}
-                <Test fetchWeatherData={fetchWetherData} weatherData={weatherData} />
+                <BeerInfo fetchWeatherData={fetchWetherData} weatherData={weatherData} />
                 <hr></hr>
                 <Hourly value={enterdText} />
                 {/* <div className="weather-time">

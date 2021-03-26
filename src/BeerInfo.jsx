@@ -93,7 +93,7 @@ const Test = (props) => {
 
   return (
     <div className="beer-info">
-            <img src={Beer} className="beer-img" />
+            <img src={`/beer/${data[random][4]}.png`} className="beer-img" />
             <div className="beer-text">
                 <div className="beer-title">
                     <h2 className="beer-name">{data[random][0]}</h2>
@@ -110,7 +110,7 @@ const Test = (props) => {
                     </div>
                     <div className="beer-describe">
                         <h3 className="question">Description: </h3>
-                        <h3 className="answer">{data[random][4]}</h3>
+                        <h3 className="answer">{data[random][5]}</h3>
                     </div>
                 <button className="btn-link">Go to Homepage</button>
                 </div>
