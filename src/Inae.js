@@ -33,23 +33,30 @@ function Inae() {
             temp_max: '',
             temp_min: '',
         },
-        weather: [{ icon: '' }]
+
+        weather: [{icon: '01n'}]
     }
 
     const [serchedCity, setSearchedCity] = useState('Vancouver')
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
-    const handleChange = (e) => {
-        setText(e.target.value)
+
+
+ 
+    const onSubmitButton = (e) => {
+      e.preventDefault();
+      // console.log(e.target[0].value)
+      setText(e.target[0].value)
+      setText((value)=>{
+        fetchWetherData(value)
+        return value
+      })
     }
 
-    const onClickButton = (e) => {
-        console.log("TEXT", text)
-        fetchWetherData()
-    }
-    
-    const fetchWetherData = async () => {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+    const fetchWetherData = async (city = 'vancouver') => {
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+
         const response = await axios.get(url)
         setWeatherData(response.data)
         console.log(response.data)
@@ -58,6 +65,7 @@ function Inae() {
     }
 
     return (
+
         // <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
         // <SearchContext.Provider value={[serchedCity, setSearchedCity]} >
             <div className="App">
@@ -66,14 +74,7 @@ function Inae() {
                     <nav className="nav-bar">
                         <img src={Logo} className="nav-logo" />
                         <Searth onChange={handleChange} onClick={onClickButton} value={text} />
-                        {/* <div className="search">
-            <input
-              type="search"
-              placeholder="Search your city, Find your beer!!"
-              className="search-input"
-            ></input>
-            <button>SEARCH</button>
-          </div> */}
+       
                         <div className="burger-menu">
                             <div className="burger-line"></div>
                             <div className="burger-line"></div>
@@ -260,6 +261,7 @@ function Inae() {
                         <h3 className="temp-text low">14°</h3>
                     </div>
                 </div>
+
             </div>
 
             <div className="beer-wave-all">
