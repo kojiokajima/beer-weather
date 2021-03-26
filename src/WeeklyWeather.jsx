@@ -5,31 +5,38 @@ import axios from 'axios';
 
 
 const WeeklyWeather = (text)=>{
-    const [ state, setState ] = useState({
-        fullData: [],
-        dailyData: []
-      })
+    // const [ state, setState ] = useState({
+    //     fullData: [],
+    //     dailyData: []
+    // })
+
+    const [ state, setState ] = useState({})
 
     useEffect(()=>{
-        // getWeeklyWeather(text)
-        getWeather(text)
+        getWeather()
     },[text])
 
     async function getWeather(){
         const result = await axios.get(
                 `https://api.openweathermap.org/data/2.5/forecast?q=${text.text}&appid=${process.env.REACT_APP_WEATHER_API}`
             ).then(resposeData => {
-            console.log(resposeData.data);
-            const dailyData = resposeData.data.list.filter(list => list.dt_txt.includes("18:00:00"))
-            // setState(dailyData)
-            setState({
-                fullData: resposeData.data.list,
-                dailyData: dailyData
-              })
-              console.log(state)
+                console.log(resposeData.data);
+                const dailyData = resposeData.data.list.filter(list => list.dt_txt.includes("18:00:00"))
+                // setState({
+                //     fullData: resposeData.data.list,
+                //     dailyData: dailyData
+                // })
+                // setState(resposeData.data.list)
+                setState(getFiveDayData(resposeData.data))
+                console.log(state);
             }).catch(error => console.log(error))
-            // })
     } 
+
+    const getFiveDayData = (data) => {
+        const dailyData = data.list.filter(list => list.dt_txt.includes("18:00:00"))
+
+        return dailyData
+    }
 
   
     // const getWeeklyWeather = () => {
@@ -58,9 +65,25 @@ const WeeklyWeather = (text)=>{
   
   
       return (
-        <div>
-          <h1>Hello World!</h1>
+        <>
+         <div className="weather-week">
+            <div className="week-content">
+                <h3 className="time-text">
+                    {/* {weeklyDatas.dailyData[0][0].dt_txt} */}
+                </h3>
+                <img src="/icon/09d.png" className="weather-content-icon" />
+                <div className="beer-reco">
+                    <img src="/beer_t.gif" className="beer-content-icon" />
+                    <h3 className="beer-content-text">Drink Outside</h3>
+                </div>
+                <div className="temp-low-high">
+                    <h3 className="temp-text high">24°</h3>
+                    <h3 className="temp-text low">14°</h3>
+                </div>
+            </div>
+           
         </div>
+        </>
       )
 
   }
