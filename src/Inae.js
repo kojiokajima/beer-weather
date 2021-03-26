@@ -14,18 +14,17 @@ import Hourly from './component/Hourly'
 export const TempContext = createContext([0, () => { }])
 export const WeatherContext = createContext(['Clouds', () => { }])
 export const textContext = createContext(["vancouver", () => { }])
-export const SearchContext = createContext(
-  [
-    '',
-    () => {}
-  ]
-)
+// export const SearchContext = createContext(
+//   [
+//     '',
+//     () => {}
+//   ]
+// )
 
 function Inae() {
     const [temp, setTemp] = useState(0)
     const [weather, setWeather] = useState('Clouds')
     const [text, setText] = useState("vancouver");
-    const [enterdText, setEnterdtext] = useState('Vancouver');
     const defaultWeatherData = {
         name: '',
         main: {
@@ -36,7 +35,7 @@ function Inae() {
         weather: [{icon: '01n', main: ''}]
     }
 
-    const [serchedCity, setSearchedCity] = useState('Vancouver')
+    // const [serchedCity, setSearchedCity] = useState('Vancouver')
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
 
@@ -58,9 +57,7 @@ function Inae() {
 
         const response = await axios.get(url)
         setWeatherData(response.data)
-        console.log(response.data)
-        setEnterdtext(text);
-        console.log("YOOOOO",enterdText)
+        
     }
 
     return (
@@ -75,9 +72,9 @@ function Inae() {
                         <Searth onSubmit={onSubmitButton} />
        
                         <div className="burger-menu">
+                            {/* <div className="burger-line"></div>
                             <div className="burger-line"></div>
-                            <div className="burger-line"></div>
-                            <div className="burger-line"></div>
+                            <div className="burger-line"></div> */}
                         </div>
                     </nav>
                 </header>
@@ -123,7 +120,7 @@ function Inae() {
         </div> */}
                 <Test fetchWeatherData={fetchWetherData} weatherData={weatherData} />
                 <hr></hr>
-                <Hourly value={enterdText} />
+                <Hourly value={text} />
                 {/* <div className="weather-time">
                     <div className="weather-content">
                         <h3 className="time-text">Now</h3>
