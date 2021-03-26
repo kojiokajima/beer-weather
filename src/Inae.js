@@ -94,33 +94,7 @@ function Inae() {
             </div>
         </div> */}
                 <CurrentWeather fetchWetherData={fetchWetherData} weatherData={weatherData} />
-                {/* <div className="beer-info">
-            <img src={Beer} className="beer-img" />
-            <div className="beer-text">
-                <div className="beer-title">
-                    <h2 className="beer-name">Corona</h2>
-                    <h3 className="beer-name2"> is perfect to this weather!</h3>
-                </div>
-                <div className="beer-contents">
-                    <div className="beer-describe">
-                        <h3 className="question">Type: </h3>
-                        <h3 className="answer">Pale</h3>
-                    </div>
-                    <div className="beer-describe">
-                        <h3 className="question">IBU: </h3>
-                        <h3 className="answer star">★ ★ ★ ★ </h3>
-                    </div>
-                    <div className="beer-describe">
-                        <h3 className="question">Description: </h3>
-                        <h3 className="answer">Why we choose...</h3>
-                    </div>
-                
-                <button className="btn-link">Go to Homepage</button>
-                </div>
 
-            </div>
-
-        </div> */}
                 <BeerInfo fetchWeatherData={fetchWetherData} weatherData={weatherData} />
                 <hr></hr>
                 <Hourly value={enterdText} />

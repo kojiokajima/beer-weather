@@ -112,7 +112,7 @@ const Test = (props) => {
                         <h3 className="question">Description: </h3>
                         <h3 className="answer">{data[random][5]}</h3>
                     </div>
-                <button className="btn-link">Go to Homepage</button>
+                {/* <button className="btn-link">Go to Homepage</button> */}
                 </div>
 
             </div>
