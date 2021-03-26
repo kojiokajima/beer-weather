@@ -33,8 +33,7 @@ function Inae() {
             temp_max: '',
             temp_min: '',
         },
-
-        weather: [{icon: '01n'}]
+        weather: [{icon: '01n', main: ''}]
     }
 
     const [serchedCity, setSearchedCity] = useState('Vancouver')
@@ -73,7 +72,7 @@ function Inae() {
                 <header className="App-header">
                     <nav className="nav-bar">
                         <img src={Logo} className="nav-logo" />
-                        <Searth onChange={handleChange} onClick={onClickButton} value={text} />
+                        <Searth onSubmit={onSubmitButton} />
        
                         <div className="burger-menu">
                             <div className="burger-line"></div>
@@ -122,7 +121,7 @@ function Inae() {
             </div>
 
         </div> */}
-                <Test />
+                <Test fetchWeatherData={fetchWetherData} weatherData={weatherData} />
                 <hr></hr>
                 <Hourly value={enterdText} />
                 {/* <div className="weather-time">
