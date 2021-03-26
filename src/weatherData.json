@@ -1,22 +1,28 @@
+
+
 {
   "coord": { "lon": -123.1193, "lat": 49.2497 },
   "weather": [
-    { "id": 501, "main": "Rain", "description": "moderate rain", "icon": "10n" }
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04d"
+    }
   ],
   "base": "stations",
   "main": {
-    "temp": 5.36,
-    "feels_like": -0.57,
-    "temp_min": 3.89,
-    "temp_max": 7,
-    "pressure": 1015,
-    "humidity": 81
+    "temp": 6.68,
+    "feels_like": 5.05,
+    "temp_min": 6,
+    "temp_max": 7.22,
+    "pressure": 1010,
+    "humidity": 93
   },
   "visibility": 10000,
-  "wind": { "speed": 6.17, "deg": 150 },
-  "rain": { "1h": 2.44 },
+  "wind": { "speed": 0.91, "deg": 4, "gust": 1.48 },
   "clouds": { "all": 90 },
-  "dt": 1616593750,
+  "dt": 1616627608,
   "sys": {
     "type": 1,
     "id": 954,

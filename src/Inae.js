@@ -1,18 +1,39 @@
-import React, {createContext, useState} from 'react'
+import React, { createContext, useState } from 'react'
 import axios from "axios"
 import './sass/main.scss';
 import Logo from './sass/img/fake_logo.png';
 import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
+
+
 // import BeerIcon from './sass/img/beer_w.png'
-import Test from './Test';
+// import Test from './Test';
+// import CurrentWeather from './CurrentWeather';
+// import Searth from "./Search";
+import WeekWeather from './WeekWeather';
+import WeeklyWeatherTo from './WeeklyWeatherTo';
+
+// export const TempContext = createContext([0, ()=>{}])
+// export const WeatherContext = createContext(['Clouds', ()=>{}])
+// export const textContext = createContext(["vancouver",()=>{}])
+
+
+import BeerIcon from './sass/img/beer_w.png'
+import BeerInfo from './BeerInfo';
 import CurrentWeather from './CurrentWeather';
 import Searth from "./Search";
-import WeekWeather from './WeekWeather';
+import Hourly from './component/Hourly'
+// import Navi from './component/Navi'
 
-export const TempContext = createContext([0, ()=>{}])
-export const WeatherContext = createContext(['Clouds', ()=>{}])
-export const textContext = createContext(["vancouver",()=>{}])
+export const TempContext = createContext([0, () => { }])
+export const WeatherContext = createContext(['Clouds', () => { }])
+export const textContext = createContext(["vancouver", () => { }])
+// export const SearchContext = createContext(
+//   [
+//     '',
+//     () => {}
+//   ]
+// )
 
 function Inae() {
     const [temp, setTemp] = useState(0)
@@ -25,82 +46,65 @@ function Inae() {
             temp_max: '',
             temp_min: '',
         },
-        weather: [{icon: ''}]
+// ----------------------------------------------------
+        weather: [{icon: '01n', main: ''}]
     }
-    
-    //weekly part 
-    // const defaultWeeklyWeatherData = {
-    //     dt_txt: '',
-    //     main: {
-    //         temp_max: '',
-    //         temp_min: ''
-    //     }
 
-    // }
-
+    // const [serchedCity, setSearchedCity] = useState('Vancouver')
+    const [weatherData, setWeatherData] = useState(defaultWeatherData)
     const defaultWeeklyWeatherData = []
 
 
-    const [weatherData, setWeatherData] = useState(defaultWeatherData)
 
-    //weekly part
-    const [weeklyWeatherData, setWeeklyWeahterData] = useState(defaultWeeklyWeatherData)
-    // const [weeklyWeatherData, setWeeklyWeahterData] = useState([])
-
-
-
-
-    const handleChange = (e) => {
-        setText(e.target.value)
+ 
+    const onSubmitButton = (e) => {
+      e.preventDefault();
+      // console.log(e.target[0].value)
+      setText(e.target[0].value)
+      setText((value)=>{
+        fetchWetherData(value)
+        return value
+      })
     }
 
-    const onClickButton = (e) => {
-        console.log(text)
-        fetchWetherData()
-        fetchWeeklyWetherData()
-    }
+    const fetchWetherData = async (city = 'vancouver') => {
 
-    const fetchWetherData = async () => {
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${text}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`;
+
         const response = await axios.get(url)
         setWeatherData(response.data)
+        
     }
 
     //weekly api
-    const fetchWeeklyWetherData = async () => {
-        const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
-        const response = await axios.get(url)
-        // defaultWeeklyWeatherData.push(response.data.list)
-        setWeeklyWeahterData(response.data.list)
-        // setWeeklyWeahterData(defaultWeatherData)
-        // console.log(weeklyWeatherData);
-    }
-
- 
+    // const fetchWeeklyWetherData = async () => {
+    //     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`;
+    //     const response = await axios.get(url)
+    //     // defaultWeeklyWeatherData.push(response.data.list)
+    //     setWeeklyWeahterData(response.data.list)
+    //     // setWeeklyWeahterData(defaultWeatherData)
+    //     // console.log(weeklyWeatherData);
+    // }
 
     return (
-    <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
-    <div className="App">
-        <header className="App-header">
-        <nav className="nav-bar">
-          <img src={Logo} className="nav-logo" />
-          <Searth onChange={handleChange} onClick={onClickButton} value={text} />
-          {/* <div className="search">
-            <input
-              type="search"
-              placeholder="Search your city, Find your beer!!"
-              className="search-input"
-            ></input>
-            <button>SEARCH</button>
-          </div> */}
-          <div className="burger-menu">
-            <div className="burger-line"></div>
-            <div className="burger-line"></div>
-            <div className="burger-line"></div>
-          </div>
-        </nav>
-      </header>
-      {/* <div className="temp-main">
+
+        // <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
+        // <SearchContext.Provider value={[serchedCity, setSearchedCity]} >
+            <div className="App">
+            {/* <Navi /> */}
+                <header className="App-header">
+                    <nav className="nav-bar">
+                        <img src={Logo} className="nav-logo" />
+                        <Searth onSubmit={onSubmitButton} />
+       
+                        <div className="burger-menu">
+                            {/* <div className="burger-line"></div>
+                            <div className="burger-line"></div>
+                            <div className="burger-line"></div> */}
+                        </div>
+                    </nav>
+                </header>
+                {/* <div className="temp-main">
             <h2 className="temp-main-cityname">Vancouver</h2>
             <div className="temp-main-large">
                 <img src={icon} className="temp-icon-large" />
@@ -113,36 +117,18 @@ function Inae() {
             </div>
         </div> */}
         <CurrentWeather fetchWetherData={fetchWetherData} weatherData={weatherData} />
-        {/* <div className="beer-info">
-            <img src={Beer} className="beer-img" />
-            <div className="beer-text">
-                <div className="beer-title">
-                    <h2 className="beer-name">Corona</h2>
-                    <h3 className="beer-name2"> is perfect to this weather!</h3>
-                </div>
-                <div className="beer-contents">
-                    <div className="beer-describe">
-                        <h3 className="question">Type: </h3>
-                        <h3 className="answer">Pale</h3>
-                    </div>
-                    <div className="beer-describe">
-                        <h3 className="question">IBU: </h3>
-                        <h3 className="answer star">★ ★ ★ ★ </h3>
-                    </div>
-                    <div className="beer-describe">
-                        <h3 className="question">Description: </h3>
-                        <h3 className="answer">Why we choose...</h3>
-                    </div>
-                
-                <button className="btn-link">Go to Homepage</button>
-                </div>
 
-            </div>
 
-        </div> */}
-        <Test />
+
+            <hr></hr>
+
+            {/* </div> */}
+
+        {/* </div> */}
+        <BeerInfo fetchWeatherData={fetchWetherData} weatherData={weatherData} />
         <hr></hr>
-        <div className="weather-time">
+        <Hourly value={text} />
+        {/* <div className="weather-time">
             <div className="weather-content">
                 <h3 className="time-text">Now</h3>
                 <img src={icon} className="weather-content-icon" />
@@ -208,10 +194,10 @@ function Inae() {
                 <img src={icon} className="weather-content-icon" />
                 <h3 className="temp-text">24°</h3>
             </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       <hr></hr>
-      <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} />
+      <WeeklyWeatherTo text={text} />
 
 
         {/* <div className="weather-week">
@@ -250,41 +236,68 @@ function Inae() {
                     <h3 className="temp-text high">24°</h3>
                     <h3 className="temp-text low">14°</h3>
                 </div>
-            </div>
-            <div className="week-content">
-                <h3 className="time-text">Tuesday</h3>
-                <img src={icon} className="weather-content-icon" />
-                <div className="beer-reco">
-                    <img src={BeerIcon} className="beer-content-icon" />
-                    <h3 className="beer-content-text">Drink Outside</h3>
+                <div className="week-content">
+                    <h3 className="time-text">Tuesday</h3>
+                    <img src={icon} className="weather-content-icon" />
+                    <div className="beer-reco">
+                        <img src={BeerIcon} className="beer-content-icon" />
+                        <h3 className="beer-content-text">Drink Outside</h3>
+                    </div>
+                    <h3 className="temp-text">24°</h3>
+                    <div className="temp-low-high">
+                        <h3 className="temp-text high">24°</h3>
+                        <h3 className="temp-text low">14°</h3>
+                    </div>
                 </div>
-                <div className="temp-low-high">
-                    <h3 className="temp-text high">24°</h3>
-                    <h3 className="temp-text low">14°</h3>
+                <div className="week-content">
+                    <h3 className="time-text">Tuesday</h3>
+                    <img src={icon} className="weather-content-icon" />
+                    <div className="beer-reco">
+                        <img src={BeerIcon} className="beer-content-icon" />
+                        <h3 className="beer-content-text">Drink Outside</h3>
+                    </div>
+                    <h3 className="temp-text">24°</h3>
+                    <div className="temp-low-high">
+                        <h3 className="temp-text high">24°</h3>
+                        <h3 className="temp-text low">14°</h3>
+                    </div>
                 </div>
-            </div>
-            <div className="week-content">
-                <h3 className="time-text">Tuesday</h3>
-                <img src={icon} className="weather-content-icon" />
-                <div className="beer-reco">
-                    <img src={BeerIcon} className="beer-content-icon" />
-                    <h3 className="beer-content-text">Drink Outside</h3>
+                <div className="week-content">
+                    <h3 className="time-text">Tuesday</h3>
+                    <img src={icon} className="weather-content-icon" />
+                    <div className="beer-reco">
+                        <img src={BeerIcon} className="beer-content-icon" />
+                        <h3 className="beer-content-text">Drink Outside</h3>
+                    </div>
+                    <h3 className="temp-text">24°</h3>
+                    <div className="temp-low-high">
+                        <h3 className="temp-text high">24°</h3>
+                        <h3 className="temp-text low">14°</h3>
+                    </div>
                 </div>
-                <div className="temp-low-high">
-                    <h3 className="temp-text high">24°</h3>
-                    <h3 className="temp-text low">14°</h3>
+                <div className="week-content">
+                    <h3 className="time-text">Tuesday</h3>
+                    <img src={icon} className="weather-content-icon" />
+                    <div className="beer-reco">
+                        <img src={BeerIcon} className="beer-content-icon" />
+                        <h3 className="beer-content-text">Drink Outside</h3>
+                    </div>
+                    <h3 className="temp-text">24°</h3>
+                    <div className="temp-low-high">
+                        <h3 className="temp-text high">24°</h3>
+                        <h3 className="temp-text low">14°</h3>
+                    </div>
                 </div>
-            </div>
-        </div> */}
 
-      <div className="beer-wave-all">
-        <div className="beer-waves"></div>
-        <div className="beer-waves1"></div>
-      </div>
-    {/* </div> */}
-    </TempContext.Provider>
+            </div> */}
 
-  );
+            <div className="beer-wave-all">
+                <div className="beer-waves"></div>
+                <div className="beer-waves1"></div>
+            </div>
+            </div>
+
+    );
 }
 
 export default Inae;
