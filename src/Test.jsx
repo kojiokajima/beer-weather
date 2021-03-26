@@ -20,8 +20,6 @@ const Test = (props) => {
   const [data, setData] = useState(beerData.cold.sunny)
   const random =  Math.floor(Math.random() * 5)
 
-  console.log("WeatherDataL ", props.weatherData);
-
   const setWeatherAndTempType = () => {
     if(props.weatherData.weather[0].main === 'Clear') {
       setWeather('sunny')
