@@ -6,7 +6,6 @@ import icon from './sass/img/icon.png';
 import Beer from './sass/img/coronas.png';
 
 
-// import BeerIcon from './sass/img/beer_w.png'
 // import Test from './Test';
 // import CurrentWeather from './CurrentWeather';
 // import Searth from "./Search";
