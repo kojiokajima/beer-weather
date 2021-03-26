@@ -1,7 +1,7 @@
 import React from 'react';
-import text from './Inae'
+// import text from './Inae'
 
-class WeekContainer extends React.Component {
+class WeeklyWeather extends React.Component {
   state = {
     fullData: [],
     dailyData: []
@@ -9,12 +9,13 @@ class WeekContainer extends React.Component {
 
   componentDidMount = () => {
     const weatherURL =
-    `https://api.openweathermap.org/data/2.5/forecast?q=${text}&appid=${process.env.REACT_APP_WEATHER_API}`
+    `http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=${process.env.REACT_APP_WEATHER_API}`
 
     fetch(weatherURL)
     .then(res => res.json())
     .then(data => {
-      const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"))
+    //   const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"))
+      const dailyData = data.list.filter(list => list.dt_txt.includes("18:00:00")) 
       this.setState({
         fullData: data.list,
         dailyData: dailyData
@@ -31,4 +32,4 @@ class WeekContainer extends React.Component {
   }
 }
 
-export default WeekContainer;
+export default WeeklyWeather;
