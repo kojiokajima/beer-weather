@@ -11,6 +11,11 @@ import Searth from "./Search";
 // import WeekWeather from './WeekWeather';
 import WeeklyWeather from './WeeklyWeather';
 import WeeklyWeatherTo from './WeeklyWeatherTo';
+// import WeeklyWeatherToTo from './WeeklyWeatherToTo';
+import DayCard from './DayCard';
+
+
+
 
 
 export const TempContext = createContext([0, ()=>{}])
@@ -60,7 +65,6 @@ function Inae() {
     const onClickButton = (e) => {
         console.log(text)
         fetchWetherData()
-        // fetchWeeklyWetherData()
     }
 
     const fetchWetherData = async () => {
@@ -78,6 +82,9 @@ function Inae() {
     //     // setWeeklyWeahterData(defaultWeatherData)
     //     // console.log(weeklyWeatherData);
     // }
+
+
+
 
  
 
@@ -214,7 +221,10 @@ function Inae() {
       <hr></hr>
       {/* <WeekWeather fetchWeeklyWetherData={fetchWeeklyWetherData} weeklyWeatherData={weeklyWeatherData} /> */}
       {/* <WeeklyWeather text={text} /> */}
-      <WeeklyWeatherTo />
+      <WeeklyWeatherTo onChange={handleChange} onClick={onClickButton} text={text}/>
+      {/* <WeeklyWeatherToTo onChange={handleChange} onClick={onClickButton} value={text}/> */}
+
+
 
 
         {/* <div className="weather-week">

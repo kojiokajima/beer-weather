@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DayCard from './DayCard';
-import Inae from './Inae'
 
-class WeeklyWeatherTo extends React.Component {
-  state = {
+const WeeklyWeatherToTo = (props) => {
+  const state = {
     fullData: [],
     dailyData: []
   }
 
+  useEffect(()=>{
+      console.log(props.text);
+      getWeather()
+      formatDayCards()
+  }, [props.text])
+  
 
-
-
-
-  componentDidMount = () => {
+  const getWeather = () => {
     const weatherURL =
-    `https://api.openweathermap.org/data/2.5/forecast?q=vancouver&appid=${process.env.REACT_APP_WEATHER_API}`
+    `https://api.openweathermap.org/data/2.5/forecast?q=${props.text}&appid=${process.env.REACT_APP_WEATHER_API}`
 
     fetch(weatherURL)
     .then(res => res.json())
@@ -27,17 +29,15 @@ class WeeklyWeatherTo extends React.Component {
     })
   }
 
-  formatDayCards = () => {
+  const formatDayCards = () => {
     return this.state.dailyData.map((reading, index) => <DayCard reading={reading} key={index} />)
   }
 
-  render() {
     return (
       <div>
         {this.formatDayCards()}
       </div>
     )
-  }
 }
 
-export default WeeklyWeatherTo;
+export default WeeklyWeatherToTo;
