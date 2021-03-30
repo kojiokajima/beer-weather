@@ -12,7 +12,7 @@ function Hourly(props) {
 
   useEffect(() => {
 
-    const url = `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_BEER_WEATHER_APP}&q=${props.value}&showlocaltime=yes&num_of_days=2&tp=1&format=json`
+    const url = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_BEER_WEATHER_APP}&q=${props.value}&showlocaltime=yes&num_of_days=2&tp=1&format=json`
     axios.get(url).then((response) => {
       // console.log(url);
       console.log('hourly data: ', response.data)
