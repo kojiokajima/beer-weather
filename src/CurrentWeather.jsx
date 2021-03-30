@@ -7,7 +7,7 @@ import axios from "axios";
 const CurrentWeather = ({ fetchWetherData, weatherData }) => {
 
     // const [temp, setTemp] = useState("");
-    const iconUrl = `http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`
+    const iconUrl = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`
 
     
 
