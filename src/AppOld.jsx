@@ -8,7 +8,7 @@ import "./App.css";
 
 
 // 24e5f02416d4df14ee3c7e8125885faa
-const App = () => {
+const AppOld = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -33,4 +33,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AppOld;
