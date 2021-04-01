@@ -27,12 +27,12 @@ import Hourly from './component/Hourly'
 export const TempContext = createContext([0, () => { }])
 export const WeatherContext = createContext(['Clouds', () => { }])
 export const textContext = createContext(["vancouver", () => { }])
-// export const SearchContext = createContext(
-//   [
-//     '',
-//     () => {}
-//   ]
-// )
+export const SearchContext = createContext(
+  [
+    '',
+    () => {}
+  ]
+)
 
 function App() {
     const [temp, setTemp] = useState(0)
@@ -62,7 +62,7 @@ function App() {
     // const defaultWeeklyWeatherData = []
 
 
-    // const [serchedCity, setSearchedCity] = useState('Vancouver')
+    const [serchedCity, setSearchedCity] = useState('Vancouver')
     const [weatherData, setWeatherData] = useState(defaultWeatherData)
     const defaultWeeklyWeatherData = []
 
@@ -72,6 +72,12 @@ function App() {
     const onSubmitButton = (e) => {
       e.preventDefault();
       // console.log(e.target[0].value)
+      
+      setSearchedCity(e.target[0].value)
+      setSearchedCity((value)=>{
+        fetchWetherData(value)
+        return value
+      })
       setText(e.target[0].value)
       setText((value)=>{
         fetchWetherData(value)
@@ -122,7 +128,7 @@ function App() {
     return (
 
         // <TempContext.Provider value={[temp, setTemp], [weather, setWeather]} >
-        // <SearchContext.Provider value={[serchedCity, setSearchedCity]} >
+        <SearchContext.Provider value={[serchedCity, setSearchedCity]} >
             <div className="App">
             {/* <Navi /> */}
                 <header className="App-header">
@@ -329,7 +335,7 @@ function App() {
                 <div className="beer-waves1"></div>
             </div>
             </div>
-
+            </SearchContext.Provider>
     );
 }
 

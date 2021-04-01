@@ -1,25 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext} from 'react'
+import {SearchContext} from '../App'
 import axios from 'axios'
 // import { SearchContext } from '../Inae'
 
 
 function Hourly(props) {
   
-  // const [searchedCity, setSearchedCity] = useContext(SearchContext)
+  const [searchedCity, setSearchedCity] = useContext(SearchContext)
   // const date = new Date();
   // const currentHour = date.getHours();
   const [hourlyData, setHourlyData] = useState([])
 
   useEffect(() => {
 
-    const url = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_BEER_WEATHER_APP}&q=${props.value}&showlocaltime=yes&num_of_days=2&tp=1&format=json`
+    const url = `https://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_BEER_WEATHER_APP}&q=${searchedCity}&showlocaltime=yes&num_of_days=2&tp=1&format=json`
     axios.get(url).then((response) => {
       // console.log(url);
       console.log('hourly data: ', response.data)
 
       const startTime = parseInt(response.data.data.time_zone[0].localtime.slice(10, 13));
       const loadedHourlyData = [];
-
+      console.log('searched city:',searchedCity); 
       // console.log(startTime)
       function get48HourlyData() {
 
@@ -74,9 +75,11 @@ function Hourly(props) {
 
       setLocal24HoursData();
 
+    }).catch(err => {
+      alert('That city is not exist! Please enter valid city!')
     })
     console.log('checkCityInHourly:', props.value)
-  }, [props.value])
+  }, [searchedCity])
 
 
   // console.log(hourlyData)
